@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import TestCard from "@/components/TestCard";
-import { Shapes, Binary, Calculator, Grid3X3, Eye, Radio } from "lucide-react";
+import { Shapes, Binary, Calculator, Grid3X3, Eye, Radio, Zap, Hash, Brain } from "lucide-react";
 
 const tests = [
   {
@@ -44,6 +44,27 @@ const tests = [
     duration: "3–4 menit",
     path: "/tes/fokus-berkelanjutan",
     icon: <Radio className="h-5 w-5" />,
+  },
+  {
+    title: "Hitung Cepat Sederhana",
+    description: "Operasi penjumlahan & pengurangan dengan tekanan waktu tinggi. Soal berganti otomatis.",
+    duration: "2–4 menit",
+    path: "/tes/hitung-cepat",
+    icon: <Zap className="h-5 w-5" />,
+  },
+  {
+    title: "Ketelitian Angka",
+    description: "Membandingkan dua deret angka untuk menentukan kesamaan atau perbedaan.",
+    duration: "3–4 menit",
+    path: "/tes/ketelitian-angka",
+    icon: <Hash className="h-5 w-5" />,
+  },
+  {
+    title: "Fokus & Ketahanan Tugas",
+    description: "Tugas hitung sederhana secara terus-menerus untuk mengukur konsistensi dan ketahanan kerja.",
+    duration: "3–5 menit",
+    path: "/tes/ketahanan-tugas",
+    icon: <Brain className="h-5 w-5" />,
   },
 ];
 
