@@ -10,8 +10,8 @@ const SustainedFocusTest = () => {
   return (
     <TestWrapper
       testType="fokus-berkelanjutan"
-      testName="Fokus Berkelanjutan"
-      description="Tekan tombol hanya ketika huruf 'X' muncul. Abaikan huruf lainnya."
+      testName="Tes Konsentrasi"
+      description="Merespon stimulus tertentu dalam rangkaian cepat untuk mengukur fokus dan konsentrasi."
       durationSeconds={180}
       segmentDurationSeconds={30}
     >

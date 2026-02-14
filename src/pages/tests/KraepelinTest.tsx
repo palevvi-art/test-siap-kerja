@@ -9,8 +9,8 @@ const KraepelinTest = () => {
   return (
     <TestWrapper
       testType="kraepelin"
-      testName="Kecermatan & Ketahanan Hitung"
-      description="Jumlahkan dua angka yang berdekatan secara vertikal. Masukkan digit satuan dari hasil penjumlahan."
+      testName="Tes Kraepelin Digital (Tes Koran)"
+      description="Menjumlahkan angka secara vertikal untuk mengukur ketelitian dan konsistensi kerja."
       durationSeconds={180}
       segmentDurationSeconds={30}
     >

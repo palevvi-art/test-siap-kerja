@@ -27,8 +27,8 @@ const PatternTest = () => {
   return (
     <TestWrapper
       testType="pengenalan-pola"
-      testName="Pengenalan Pola"
-      description="Identifikasi pola visual yang muncul dan pilih simbol berikutnya dalam urutan."
+      testName="Tes Logika Pola"
+      description="Mengidentifikasi dan melanjutkan pola visual untuk mengukur kemampuan analisis."
       durationSeconds={180}
       segmentDurationSeconds={30}
     >

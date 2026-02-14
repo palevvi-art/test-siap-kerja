@@ -36,8 +36,8 @@ const ProcessingSpeedTest = () => {
   return (
     <TestWrapper
       testType="kecepatan-pemrosesan"
-      testName="Kecepatan Pemrosesan"
-      description="Selesaikan perhitungan sederhana secepat mungkin."
+      testName="Tes Kecepatan Hitung"
+      description="Menyelesaikan perhitungan dasar secepat mungkin di bawah tekanan waktu."
       durationSeconds={150}
       segmentDurationSeconds={30}
     >

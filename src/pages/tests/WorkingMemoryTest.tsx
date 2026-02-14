@@ -5,8 +5,8 @@ const WorkingMemoryTest = () => {
   return (
     <TestWrapper
       testType="daya-ingat"
-      testName="Daya Ingat Kerja"
-      description="Ingat urutan angka yang ditampilkan, lalu masukkan kembali urutannya."
+      testName="Tes Daya Ingat Angka"
+      description="Mengingat dan mengulang urutan angka untuk mengukur kapasitas daya ingat kerja."
       durationSeconds={180}
       segmentDurationSeconds={30}
     >

@@ -28,8 +28,8 @@ const QUESTION_TIME_MS = 4000;
 const QuickMathTest = () => (
   <TestWrapper
     testType="hitung-cepat"
-    testName="Hitung Cepat Sederhana"
-    description="Selesaikan operasi penjumlahan dan pengurangan sederhana secepat mungkin. Soal berganti otomatis."
+    testName="Tes Hitung Cepat"
+    description="Penjumlahan dan pengurangan dengan batas waktu ketat per soal. Mengukur kecepatan respon."
     durationSeconds={150}
     segmentDurationSeconds={30}
   >
