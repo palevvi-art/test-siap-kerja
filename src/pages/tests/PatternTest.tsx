@@ -33,6 +33,7 @@ const PatternTest = () => {
       segmentDurationSeconds={30}
     >
       {({ onResponse, isRunning }) => <PatternEngine onResponse={onResponse} isRunning={isRunning} />}
+
     </TestWrapper>
   );
 };

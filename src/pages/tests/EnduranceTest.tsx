@@ -16,7 +16,8 @@ const EnduranceTest = () => (
     durationSeconds={240}
     segmentDurationSeconds={30}
   >
-    {({ onResponse, isRunning }) => <EnduranceEngine onResponse={onResponse} isRunning={isRunning} />}
+      {({ onResponse, isRunning }) => <EnduranceEngine onResponse={onResponse} isRunning={isRunning} />}
+
   </TestWrapper>
 );
 

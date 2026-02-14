@@ -33,7 +33,8 @@ const QuickMathTest = () => (
     durationSeconds={150}
     segmentDurationSeconds={30}
   >
-    {({ onResponse, isRunning }) => <QuickMathEngine onResponse={onResponse} isRunning={isRunning} />}
+      {({ onResponse, isRunning }) => <QuickMathEngine onResponse={onResponse} isRunning={isRunning} />}
+
   </TestWrapper>
 );
 

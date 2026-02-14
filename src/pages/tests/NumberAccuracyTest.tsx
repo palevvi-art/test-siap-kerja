@@ -28,7 +28,8 @@ const NumberAccuracyTest = () => (
     durationSeconds={180}
     segmentDurationSeconds={30}
   >
-    {({ onResponse, isRunning }) => <NumberAccuracyEngine onResponse={onResponse} isRunning={isRunning} />}
+      {({ onResponse, isRunning }) => <NumberAccuracyEngine onResponse={onResponse} isRunning={isRunning} />}
+
   </TestWrapper>
 );
 
