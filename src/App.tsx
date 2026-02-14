@@ -4,6 +4,15 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import TestSelection from "./pages/TestSelection";
+import Results from "./pages/Results";
+import Dashboard from "./pages/Dashboard";
+import PatternTest from "./pages/tests/PatternTest";
+import WorkingMemoryTest from "./pages/tests/WorkingMemoryTest";
+import ProcessingSpeedTest from "./pages/tests/ProcessingSpeedTest";
+import KraepelinTest from "./pages/tests/KraepelinTest";
+import VisualAccuracyTest from "./pages/tests/VisualAccuracyTest";
+import SustainedFocusTest from "./pages/tests/SustainedFocusTest";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -16,7 +25,15 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/tes" element={<TestSelection />} />
+          <Route path="/tes/pengenalan-pola" element={<PatternTest />} />
+          <Route path="/tes/daya-ingat" element={<WorkingMemoryTest />} />
+          <Route path="/tes/kecepatan-pemrosesan" element={<ProcessingSpeedTest />} />
+          <Route path="/tes/kraepelin" element={<KraepelinTest />} />
+          <Route path="/tes/ketelitian-visual" element={<VisualAccuracyTest />} />
+          <Route path="/tes/fokus-berkelanjutan" element={<SustainedFocusTest />} />
+          <Route path="/hasil/:id" element={<Results />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
