@@ -11,8 +11,8 @@ function generateSimpleTask() {
 const EnduranceTest = () => (
   <TestWrapper
     testType="ketahanan-tugas"
-    testName="Fokus & Ketahanan Tugas"
-    description="Selesaikan penjumlahan sederhana secara terus-menerus. Tes ini mengukur konsistensi dan ketahanan kerja Anda."
+    testName="Tes Ketahanan Kerja"
+    description="Tugas hitung berulang dalam durasi panjang untuk mengukur konsistensi dan daya tahan kerja."
     durationSeconds={240}
     segmentDurationSeconds={30}
   >
