@@ -10,18 +10,21 @@ interface TestWrapperProps {
   description: string;
   durationSeconds: number;
   segmentDurationSeconds: number;
+  maxQuestions?: number;
   children: (props: {
     onResponse: (correct: boolean, responseTimeMs: number) => void;
     isRunning: boolean;
     isTrial: boolean;
     timeLeft: number;
     currentSegment: number;
+    questionNumber: number;
+    maxQuestions?: number;
   }) => React.ReactNode;
 }
 
 const TRIAL_COUNT = 5;
 
-const TestWrapper = ({ testType, testName, description, durationSeconds, segmentDurationSeconds, children }: TestWrapperProps) => {
+const TestWrapper = ({ testType, testName, description, durationSeconds, segmentDurationSeconds, maxQuestions, children }: TestWrapperProps) => {
   const navigate = useNavigate();
   const [phase, setPhase] = useState<"intro" | "trial-intro" | "trial" | "trial-done" | "running" | "done">("intro");
   const [timeLeft, setTimeLeft] = useState(durationSeconds);
@@ -117,7 +120,10 @@ const TestWrapper = ({ testType, testName, description, durationSeconds, segment
     const elapsed = (Date.now() - startTimeRef.current) / 1000;
     const seg = Math.floor(elapsed / segmentDurationSeconds) + 1;
     responsesRef.current.push({ correct, time: responseTimeMs, segment: seg });
-  }, [segmentDurationSeconds]);
+    if (maxQuestions && responsesRef.current.length >= maxQuestions) {
+      setTimeout(() => stop(), 100);
+    }
+  }, [segmentDurationSeconds, maxQuestions, stop]);
 
   const formatTime = (s: number) => {
     const m = Math.floor(s / 60);
@@ -197,7 +203,7 @@ const TestWrapper = ({ testType, testName, description, durationSeconds, segment
                 {trialFeedback === "correct" ? "Benar" : "Salah"}
               </div>
             )}
-            {children({ onResponse: onTrialResponse, isRunning: true, isTrial: true, timeLeft: 0, currentSegment: 0 })}
+            {children({ onResponse: onTrialResponse, isRunning: true, isTrial: true, timeLeft: 0, currentSegment: 0, questionNumber: trialCount + 1, maxQuestions: TRIAL_COUNT })}
           </div>
         )}
 
@@ -223,7 +229,9 @@ const TestWrapper = ({ testType, testName, description, durationSeconds, segment
         {phase === "running" && (
           <div>
             <div className="flex items-center justify-between mb-6">
-              <div className="text-sm text-muted-foreground">Segmen {currentSegment}</div>
+              <div className="text-sm text-muted-foreground">
+                {maxQuestions ? `Soal ${Math.min(responsesRef.current.length + 1, maxQuestions)}/${maxQuestions}` : `Segmen ${currentSegment}`}
+              </div>
               <div className="flex items-center gap-3">
                 <div className="text-lg font-mono font-bold text-foreground">{formatTime(timeLeft)}</div>
                 <button
@@ -241,7 +249,7 @@ const TestWrapper = ({ testType, testName, description, durationSeconds, segment
                 style={{ width: `${((durationSeconds - timeLeft) / durationSeconds) * 100}%` }}
               />
             </div>
-            {children({ onResponse, isRunning: true, isTrial: false, timeLeft, currentSegment })}
+            {children({ onResponse, isRunning: true, isTrial: false, timeLeft, currentSegment, questionNumber: responsesRef.current.length + 1, maxQuestions })}
           </div>
         )}
       </div>

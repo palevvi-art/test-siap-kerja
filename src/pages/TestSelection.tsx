@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import TestCard from "@/components/TestCard";
-import { Shapes, Binary, Calculator, Grid3X3, Eye, Radio, Zap, Hash, Brain } from "lucide-react";
+import { Shapes, Binary, Calculator, Grid3X3, Eye, Radio, Zap, Hash, Brain, BookOpen } from "lucide-react";
 
 const tests = [
   {
@@ -65,6 +65,13 @@ const tests = [
     duration: "3–5 menit",
     path: "/tes/ketahanan-tugas",
     icon: <Brain className="h-5 w-5" />,
+  },
+  {
+    title: "Tes Penalaran Verbal",
+    description: "Mengukur pemahaman verbal dan logika komunikasi melalui sinonim, antonim, dan pemahaman bacaan.",
+    duration: "~25 menit",
+    path: "/tes/penalaran-verbal",
+    icon: <BookOpen className="h-5 w-5" />,
   },
 ];
 

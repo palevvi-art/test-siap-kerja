@@ -16,6 +16,7 @@ import SustainedFocusTest from "./pages/tests/SustainedFocusTest";
 import QuickMathTest from "./pages/tests/QuickMathTest";
 import NumberAccuracyTest from "./pages/tests/NumberAccuracyTest";
 import EnduranceTest from "./pages/tests/EnduranceTest";
+import VerbalReasoningTest from "./pages/tests/VerbalReasoningTest";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/tes/hitung-cepat" element={<QuickMathTest />} />
           <Route path="/tes/ketelitian-angka" element={<NumberAccuracyTest />} />
           <Route path="/tes/ketahanan-tugas" element={<EnduranceTest />} />
+          <Route path="/tes/penalaran-verbal" element={<VerbalReasoningTest />} />
           <Route path="/hasil/:id" element={<Results />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" element={<NotFound />} />
