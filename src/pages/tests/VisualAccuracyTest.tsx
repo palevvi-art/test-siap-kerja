@@ -32,6 +32,7 @@ const VisualAccuracyTest = () => {
       segmentDurationSeconds={30}
     >
       {({ onResponse, isRunning }) => <VisualEngine onResponse={onResponse} isRunning={isRunning} />}
+
     </TestWrapper>
   );
 };

@@ -15,6 +15,7 @@ const KraepelinTest = () => {
       segmentDurationSeconds={30}
     >
       {({ onResponse, isRunning }) => <KraepelinEngine onResponse={onResponse} isRunning={isRunning} />}
+
     </TestWrapper>
   );
 };

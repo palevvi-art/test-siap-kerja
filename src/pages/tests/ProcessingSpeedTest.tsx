@@ -42,6 +42,7 @@ const ProcessingSpeedTest = () => {
       segmentDurationSeconds={30}
     >
       {({ onResponse, isRunning }) => <MathEngine onResponse={onResponse} isRunning={isRunning} />}
+
     </TestWrapper>
   );
 };
