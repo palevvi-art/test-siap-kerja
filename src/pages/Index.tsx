@@ -1,62 +1,111 @@
 import { Link } from "react-router-dom";
-import { Brain, Target, Zap, BarChart3, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { ALL_TESTS } from "@/lib/testRegistry";
 
-const features = [
-  { icon: <Target className="h-5 w-5" />, title: "Berbasis Tugas", desc: "Tes dihasilkan sistem secara acak, bukan dari bank soal." },
-  { icon: <Zap className="h-5 w-5" />, title: "Terukur Objektif", desc: "Metrik performa dicatat otomatis: akurasi, kecepatan, konsistensi." },
-  { icon: <BarChart3 className="h-5 w-5" />, title: "Hasil Transparan", desc: "Ringkasan performa netral tanpa klaim klinis atau pelabelan." },
+const PILLARS = [
+  {
+    label: "Berbasis Tugas",
+    detail:
+      "Soal dihasilkan sistem secara acak setiap sesi. Tidak ada bank soal yang bisa dihafalkan.",
+  },
+  {
+    label: "Terukur Objektif",
+    detail:
+      "Akurasi, kecepatan respons, dan konsistensi antar-segmen dicatat otomatis selama pengerjaan.",
+  },
+  {
+    label: "Hasil Transparan",
+    detail:
+      "Ringkasan performa disajikan apa adanya. Tidak ada label kepribadian atau klaim klinis.",
+  },
 ];
 
-const Index = () => {
-  return (
-    <div className="min-h-screen">
-      {/* Hero */}
-      <section className="gradient-hero">
-        <div className="container mx-auto px-4 py-24 md:py-32 text-center max-w-3xl">
-          <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-medium mb-6">
-            <Brain className="h-4 w-4" />
-            Platform Tes Kinerja Kognitif
+const Index = () => (
+  <div className="min-h-screen bg-background">
+    {/* Nav */}
+    <header className="border-b border-border/60">
+      <div className="container mx-auto flex items-center justify-between h-14 px-6 max-w-5xl">
+        <span className="font-semibold text-foreground tracking-tight">KognitiF</span>
+        <Link
+          to="/tes"
+          className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+        >
+          Mulai Tes
+        </Link>
+      </div>
+    </header>
+
+    {/* Hero */}
+    <section className="container mx-auto px-6 pt-20 pb-16 max-w-5xl">
+      <div className="max-w-2xl">
+        <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-4">
+          Platform Tes Kinerja Kognitif
+        </p>
+        <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-[1.15] tracking-tight mb-5">
+          Ukur cara kerja otak Anda —{" "}
+          <span className="text-muted-foreground font-normal">bukan kepribadian.</span>
+        </h1>
+        <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-xl">
+          {ALL_TESTS.length} modul tes berbasis tugas untuk mengukur fokus, ketelitian, dan
+          konsistensi kerja secara objektif. Tanpa bank soal. Tanpa interpretasi klinis.
+        </p>
+        <Link
+          to="/tes"
+          className="inline-flex items-center gap-2 bg-foreground text-background px-5 py-2.5 rounded-lg text-sm font-semibold hover:opacity-85 transition-opacity"
+        >
+          Lihat Semua Tes
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
+    </section>
+
+    <div className="border-t border-border/60" />
+
+    {/* Pillars */}
+    <section className="container mx-auto px-6 py-16 max-w-5xl">
+      <div className="grid md:grid-cols-3 gap-10">
+        {PILLARS.map((p) => (
+          <div key={p.label}>
+            <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-2">
+              {p.label}
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">{p.detail}</p>
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-tight mb-4">
-            Ukur Fokus, Ketelitian, dan Konsistensi Kerja Secara Objektif
-          </h1>
-          <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-            Enam tes berbasis tugas yang dihasilkan sistem untuk mengukur pola kinerja kognitif Anda.
-            Tanpa bank soal, tanpa klaim klinis.
-          </p>
+        ))}
+      </div>
+    </section>
+
+    <div className="border-t border-border/60" />
+
+    {/* Module grid */}
+    <section className="container mx-auto px-6 py-16 max-w-5xl">
+      <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-6">
+        Modul yang tersedia
+      </p>
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-2.5">
+        {ALL_TESTS.map((t) => (
           <Link
-            to="/tes"
-            className="gradient-primary inline-flex items-center gap-2 text-primary-foreground px-6 py-3 rounded-lg font-medium text-base hover:opacity-90 transition-opacity"
+            key={t.id}
+            to={t.path}
+            className="group border border-border rounded-lg px-3 py-3 hover:border-primary hover:bg-accent/50 transition-all duration-150"
           >
-            Mulai Tes
-            <ArrowRight className="h-4 w-4" />
+            <p className="text-sm font-medium text-foreground leading-snug group-hover:text-primary transition-colors">
+              {t.name}
+            </p>
+            <p className="text-xs text-muted-foreground mt-0.5">{t.duration}</p>
           </Link>
-        </div>
-      </section>
+        ))}
+      </div>
+    </section>
 
-      {/* Features */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          {features.map((f, i) => (
-            <div key={i} className="bg-card border rounded-lg p-5">
-              <div className="h-10 w-10 rounded-lg bg-accent flex items-center justify-center text-primary mb-3">
-                {f.icon}
-              </div>
-              <h3 className="font-semibold text-card-foreground mb-1">{f.title}</h3>
-              <p className="text-sm text-muted-foreground">{f.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t py-6 text-center text-sm text-muted-foreground">
-        <div className="container mx-auto px-4">
-          KognitiF — Platform Tes Kinerja Kognitif Berbasis Tugas
-        </div>
-      </footer>
-    </div>
-  );
-};
+    {/* Footer */}
+    <footer className="border-t border-border/60 py-8">
+      <div className="container mx-auto px-6 max-w-5xl flex items-center justify-between">
+        <span className="text-sm font-semibold text-foreground">KognitiF</span>
+        <p className="text-xs text-muted-foreground">Platform tes kinerja kognitif berbasis tugas.</p>
+      </div>
+    </footer>
+  </div>
+);
 
 export default Index;
