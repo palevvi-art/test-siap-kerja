@@ -48,8 +48,9 @@ describe("SEO route scaffolding", () => {
     expect(source).toContain('"@type": "ItemList"');
     expect(source).toContain("Intent pencarian yang dilayani");
     expect(source).toContain("Dashboard latihan");
-    expect(source).toContain("Relevan untuk pola seleksi yang sering dicari");
+    expect(source).toContain("Cara pakai untuk persiapan tes kerja");
+    expect(source).toContain("Katalog modul");
     expect(source).toContain("Bukti yang terlihat di produk");
-    expect(source).toContain("Persiapan tes kerja yang langsung terasa rapi sejak layar pertama.");
+    expect(source).toContain("Landing page yang sekarang langsung terasa seperti produk yang siap dipakai.");
   });
 });
