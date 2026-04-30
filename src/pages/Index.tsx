@@ -22,10 +22,14 @@ const HERO_METRICS = [
 ];
 
 const HERO_ACTIVITY = [
-  { title: "Kraepelin Digital", detail: "Sesi selesai • 91% akurasi", time: "Baru saja" },
-  { title: "Deret Angka", detail: "Latihan lanjutan • 4 menit", time: "2 menit lalu" },
-  { title: "Fokus Warna", detail: "Perlu latihan ulang", time: "5 menit lalu" },
+  { title: "Kraepelin Digital", detail: "Sesi selesai • 91% akurasi", time: "Baru saja", progress: 91 },
+  { title: "Deret Angka", detail: "Latihan lanjutan • 4 menit", time: "2 menit lalu", progress: 72 },
+  { title: "Fokus Warna", detail: "Perlu latihan ulang", time: "5 menit lalu", progress: 58 },
 ];
+
+const WEEKLY_ACCURACY = [44, 60, 58, 80, 74, 92, 86];
+const WEEKLY_DAY_LABELS = ["Sn", "Sl", "Rb", "Km", "Jm", "Sb", "Mg"];
+const WEEKLY_CHART_PATH = "M 16 124 C 48 110, 66 88, 82 90 C 98 92, 116 58, 132 48 C 148 38, 168 20, 190 28 C 212 36, 232 12, 260 16";
 
 const TRUST_LABELS = ["BUMN", "CPNS", "Bank", "Admin", "Operator", "QC", "Back Office", "FMCG"];
 
@@ -188,8 +192,10 @@ export default function Index() {
               Latihan Kognitif untuk Seleksi Kerja
             </div>
 
-            <h1 className="landing-hero-copy landing-stagger-2 mx-auto mt-6 max-w-3xl text-[2.7rem] font-semibold leading-[0.96] tracking-tight text-slate-950 sm:text-[3.2rem] md:text-[3.9rem] lg:text-[4.6rem]">
-              Latihan tes kerja yang rapi, cepat, dan mudah diulang.
+            <h1 className="landing-hero-copy landing-stagger-2 mx-auto mt-6 max-w-[12.5ch] text-balance text-[2.65rem] font-semibold leading-[1.02] tracking-[-0.045em] text-slate-950 sm:text-[3.15rem] md:text-[3.8rem] lg:text-[4.35rem]">
+              <span className="block">Latihan tes kerja</span>
+              <span className="mt-1 block">yang rapi, cepat,</span>
+              <span className="mt-1 block">dan mudah diulang.</span>
             </h1>
 
             <p className="landing-hero-copy landing-stagger-3 mx-auto mt-5 max-w-2xl text-[15px] leading-7 text-slate-600 sm:text-base md:text-[17px] md:leading-8">
@@ -287,13 +293,24 @@ export default function Index() {
                       {HERO_ACTIVITY.map((item, index) => (
                         <div
                           key={item.title}
-                          className={`landing-hero-copy landing-stream-item landing-stagger-${index + 6} flex items-start justify-between gap-3 rounded-[18px] border border-white/10 bg-white/[0.025] px-3 py-3`}
+                          className={`landing-hero-copy landing-stream-item landing-stream-card landing-stagger-${index + 6} rounded-[18px] border border-white/10 bg-white/[0.025] px-3 py-3`}
                         >
-                          <div>
-                            <p className="text-sm font-medium text-white">{item.title}</p>
-                            <p className="text-xs text-slate-400">{item.detail}</p>
+                          <div className="flex items-start justify-between gap-3">
+                            <div className="flex items-start gap-3">
+                              <span className="landing-live-dot mt-1.5 h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                              <div>
+                                <p className="text-sm font-medium text-white">{item.title}</p>
+                                <p className="text-xs text-slate-400">{item.detail}</p>
+                              </div>
+                            </div>
+                            <span className="text-[11px] text-slate-500">{item.time}</span>
                           </div>
-                          <span className="text-[11px] text-slate-500">{item.time}</span>
+                          <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10">
+                            <div
+                              className="landing-progress-line h-full rounded-full bg-[linear-gradient(90deg,rgba(16,185,129,0.85),rgba(110,231,183,0.95))]"
+                              style={{ width: `${item.progress}%`, animationDelay: `${index * 140 + 240}ms` }}
+                            />
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -307,18 +324,62 @@ export default function Index() {
                         Stabil meningkat
                       </div>
                     </div>
-                    <div className="mt-5 flex h-32 items-end gap-2 sm:h-36">
-                      {[44, 60, 58, 80, 74, 92, 86].map((height, index) => (
+                    <div className="relative mt-5 h-36 overflow-hidden rounded-[18px] border border-white/8 bg-white/[0.025] px-3 pb-3 pt-4 sm:h-40">
+                      <div className="pointer-events-none absolute inset-x-3 top-5 h-px bg-white/10" />
+                      <div className="pointer-events-none absolute inset-x-3 top-1/2 h-px -translate-y-1/2 bg-white/6" />
+                      <svg
+                        viewBox="0 0 276 132"
+                        className="pointer-events-none absolute inset-x-3 bottom-10 h-[112px] w-[calc(100%-24px)] overflow-visible"
+                        aria-hidden="true"
+                      >
+                        <defs>
+                          <linearGradient id="weekly-line" x1="0%" x2="100%" y1="0%" y2="0%">
+                            <stop offset="0%" stopColor="rgba(52,211,153,0.35)" />
+                            <stop offset="55%" stopColor="rgba(52,211,153,0.95)" />
+                            <stop offset="100%" stopColor="rgba(167,243,208,0.6)" />
+                          </linearGradient>
+                        </defs>
+                        <path
+                          d={WEEKLY_CHART_PATH}
+                          fill="none"
+                          stroke="url(#weekly-line)"
+                          strokeWidth="3.5"
+                          strokeLinecap="round"
+                          className="landing-chart-line"
+                        />
+                        {[
+                          { cx: 16, cy: 124 },
+                          { cx: 52, cy: 98 },
+                          { cx: 88, cy: 92 },
+                          { cx: 124, cy: 52 },
+                          { cx: 160, cy: 64 },
+                          { cx: 214, cy: 18 },
+                          { cx: 260, cy: 28 },
+                        ].map((point, index) => (
+                          <circle
+                            key={`${point.cx}-${point.cy}`}
+                            cx={point.cx}
+                            cy={point.cy}
+                            r="4.5"
+                            fill="#a7f3d0"
+                            className="landing-chart-dot"
+                            style={{ animationDelay: `${index * 140 + 360}ms` }}
+                          />
+                        ))}
+                      </svg>
+                      <div className="relative z-10 flex h-full items-end gap-2">
+                      {WEEKLY_ACCURACY.map((height, index) => (
                         <div key={height} className="flex flex-1 flex-col items-center gap-2">
                           <div
                             className="landing-rise landing-bar-glow w-full rounded-t-md bg-[linear-gradient(180deg,rgba(16,185,129,0.95),rgba(16,185,129,0.18))]"
                             style={{ height: `${height}%`, animationDelay: `${index * 110}ms` }}
                           />
                           <span className="text-[11px] text-slate-500">
-                            {["Sn", "Sl", "Rb", "Km", "Jm", "Sb", "Mg"][index]}
+                            {WEEKLY_DAY_LABELS[index]}
                           </span>
                         </div>
                       ))}
+                    </div>
                     </div>
                     <div className="landing-hero-copy landing-stagger-8 mt-4 rounded-[18px] border border-dashed border-white/10 px-3 py-3 text-sm text-slate-400">
                       Hasil inti terbuka cepat. Breakdown detail tetap ada saat dibutuhkan.
@@ -328,15 +389,14 @@ export default function Index() {
               </div>
             </div>
 
-            <div className="landing-float-delay absolute -left-3 top-6 z-20 hidden rounded-[22px] border border-black/10 bg-white px-3 py-2 text-slate-950 shadow-[0_18px_40px_rgba(15,23,42,0.08)] xl:block">
+            <div className="landing-float-delay absolute left-8 top-0 z-20 hidden -translate-y-1/2 rounded-full border border-black/10 bg-white/96 px-4 py-2 text-slate-950 shadow-[0_18px_40px_rgba(15,23,42,0.08)] 2xl:block">
               <div className="flex items-center gap-2 text-sm font-medium">
                 <ShieldCheck className="h-4 w-4 text-emerald-700" />
                 Tanpa registrasi
               </div>
-              <p className="mt-1 text-xs text-slate-500">Langsung mulai dari browser</p>
             </div>
 
-            <div className="landing-float-slow absolute -bottom-3 right-4 z-20 hidden rounded-[22px] border border-black/10 bg-white px-3 py-2 text-slate-950 shadow-[0_18px_40px_rgba(15,23,42,0.08)] xl:block">
+            <div className="landing-float-slow absolute bottom-6 -right-5 z-20 hidden rounded-[22px] border border-black/10 bg-white/96 px-3 py-2 text-slate-950 shadow-[0_18px_40px_rgba(15,23,42,0.08)] 2xl:block">
               <div className="flex items-center gap-2 text-sm font-medium">
                 <Sparkles className="h-4 w-4 text-emerald-700" />
                 Hasil transparan
