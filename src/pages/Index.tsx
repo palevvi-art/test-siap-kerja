@@ -28,18 +28,18 @@ const HERO_ACTIVITY = [
   { title: "Fokus Warna", detail: "Perlu latihan ulang", time: "5 menit lalu", progress: 58 },
 ];
 
-const WEEKLY_ACCURACY = [44, 60, 58, 80, 74, 92, 86];
+const WEEKLY_ACCURACY = [40, 54, 52, 68, 62, 78, 72];
 const WEEKLY_DAY_LABELS = ["Sn", "Sl", "Rb", "Km", "Jm", "Sb", "Mg"];
-const WEEKLY_CHART_PATH = "M 16 122 C 34 112, 44 100, 52 96 C 60 92, 76 90, 88 88 C 100 86, 112 60, 124 54 C 136 48, 148 62, 160 60 C 172 58, 194 20, 214 18 C 234 16, 246 24, 260 26";
-const WEEKLY_CHART_AREA_PATH = "M 16 122 C 34 112, 44 100, 52 96 C 60 92, 76 90, 88 88 C 100 86, 112 60, 124 54 C 136 48, 148 62, 160 60 C 172 58, 194 20, 214 18 C 234 16, 246 24, 260 26 L 260 132 L 16 132 Z";
+const WEEKLY_CHART_PATH = "M 8 122 C 20 116, 32 104, 51 96 C 68 88, 80 86, 94 88 C 108 90, 120 64, 137 54 C 150 46, 164 62, 180 60 C 196 58, 210 28, 223 18 C 238 10, 250 18, 266 26";
+const WEEKLY_CHART_AREA_PATH = "M 8 122 C 20 116, 32 104, 51 96 C 68 88, 80 86, 94 88 C 108 90, 120 64, 137 54 C 150 46, 164 62, 180 60 C 196 58, 210 28, 223 18 C 238 10, 250 18, 266 26 L 266 132 L 8 132 Z";
 const WEEKLY_CHART_POINTS = [
-  { cx: 16, cy: 122 },
-  { cx: 52, cy: 96 },
-  { cx: 88, cy: 88 },
-  { cx: 124, cy: 54 },
-  { cx: 160, cy: 60 },
-  { cx: 214, cy: 18 },
-  { cx: 260, cy: 26 },
+  { cx: 8, cy: 122 },
+  { cx: 51, cy: 96 },
+  { cx: 94, cy: 88 },
+  { cx: 137, cy: 54 },
+  { cx: 180, cy: 60 },
+  { cx: 223, cy: 18 },
+  { cx: 266, cy: 26 },
 ];
 
 const TRUST_LABELS = ["BUMN", "CPNS", "Bank", "Admin", "Operator", "QC", "Back Office", "FMCG"];
@@ -135,6 +135,7 @@ export default function Index() {
     typeof window !== "undefined" && typeof window.IntersectionObserver !== "undefined";
   const heroMotionViewport =
     !shouldReduceMotion && hasViewportObserver ? { once: true, amount: 0.55 } : undefined;
+  const heroMotionEase = [0.22, 1, 0.36, 1] as const;
 
   useEffect(() => {
     const nodes = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
@@ -209,7 +210,7 @@ export default function Index() {
               Latihan Kognitif untuk Seleksi Kerja
             </div>
 
-            <h1 className="landing-hero-copy landing-stagger-2 mx-auto mt-6 max-w-[16.5ch] text-balance text-[2.55rem] font-semibold leading-[1.03] tracking-[-0.05em] text-slate-950 sm:max-w-[17.2ch] sm:text-[3.1rem] md:text-[3.8rem] lg:max-w-[18.2ch] lg:text-[4.2rem]">
+            <h1 className="landing-hero-copy landing-stagger-2 mx-auto mt-6 max-w-[16.25ch] text-balance text-[2.42rem] font-semibold leading-[1.04] tracking-[-0.052em] text-slate-950 sm:max-w-[17ch] sm:text-[3rem] md:max-w-[17.6ch] md:text-[3.65rem] lg:max-w-[18.2ch] lg:text-[4.2rem]">
               <span className="block">Latihan tes kerja yang rapi,</span>
               <span className="mt-1.5 block">cepat, dan mudah diulang.</span>
             </h1>
@@ -252,7 +253,7 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="relative mx-auto mt-12 max-w-[70rem]">
+          <div className="relative mx-auto mt-12 max-w-[70rem] md:mt-14">
             <div className="landing-hero-panel relative z-10 rounded-[32px] border border-white/90 bg-white/96 p-3 text-slate-950 shadow-[0_28px_90px_rgba(15,23,42,0.12)] sm:p-4 md:p-5">
               <div className="rounded-[26px] border border-slate-200/80 bg-[linear-gradient(180deg,#ffffff_0%,#f6f8f3_100%)] p-3 sm:p-4 md:p-5">
                 <div className="mb-5 flex items-center justify-between rounded-[18px] border border-slate-200 bg-white/90 px-3 py-2.5">
@@ -300,7 +301,7 @@ export default function Index() {
                   </div>
                 </div>
 
-                <div className="mt-5 grid gap-4 xl:grid-cols-[1.02fr_0.98fr]">
+                <div className="mt-5 grid gap-4 xl:grid-cols-[1.03fr_0.97fr]">
                   <div className="landing-hero-copy landing-stagger-6 rounded-[24px] border border-slate-200 bg-white/92 p-4 shadow-[0_12px_28px_rgba(15,23,42,0.04)] md:p-5">
                     <div className="flex items-center justify-between border-b border-slate-100 pb-3">
                       <div>
@@ -334,7 +335,7 @@ export default function Index() {
                               animate={!hasViewportObserver || shouldReduceMotion ? { scaleX: 1, opacity: 1 } : undefined}
                               whileInView={hasViewportObserver ? { scaleX: 1, opacity: 1 } : undefined}
                               viewport={heroMotionViewport}
-                              transition={{ delay: index * 0.12 + 0.24, duration: 1.05, ease: [0.22, 1, 0.36, 1] }}
+                              transition={{ delay: index * 0.08 + 1.04, duration: 0.92, ease: heroMotionEase }}
                               style={{ width: `${item.progress}%`, originX: 0 }}
                             />
                           </div>
@@ -354,7 +355,7 @@ export default function Index() {
                         Stabil meningkat
                       </div>
                     </div>
-                    <div className="relative mt-4 h-[10.75rem] overflow-hidden rounded-[20px] border border-slate-200 bg-[#fbfcf8] px-3.5 pb-3 pt-4 sm:h-[12rem]">
+                    <div className="relative mt-4 h-[10.5rem] overflow-hidden rounded-[20px] border border-slate-200 bg-[#fbfcf8] px-3.5 pb-3 pt-4 sm:h-[11.75rem]">
                       <div className="pointer-events-none absolute inset-x-3 top-5 h-px bg-slate-200" />
                       <div className="pointer-events-none absolute inset-x-3 top-1/2 h-px -translate-y-1/2 bg-slate-100" />
                       <motion.svg
@@ -380,7 +381,7 @@ export default function Index() {
                           animate={!hasViewportObserver || shouldReduceMotion ? { opacity: 1 } : undefined}
                           whileInView={hasViewportObserver ? { opacity: 1 } : undefined}
                           viewport={heroMotionViewport}
-                          transition={{ duration: 0.8, delay: 0.46, ease: [0.22, 1, 0.36, 1] }}
+                          transition={{ duration: 0.78, delay: 0.14, ease: heroMotionEase }}
                         />
                         <motion.path
                           d={WEEKLY_CHART_PATH}
@@ -392,7 +393,7 @@ export default function Index() {
                           animate={!hasViewportObserver || shouldReduceMotion ? { pathLength: 1, opacity: 1 } : undefined}
                           whileInView={hasViewportObserver ? { pathLength: 1, opacity: 1 } : undefined}
                           viewport={heroMotionViewport}
-                          transition={{ duration: 1.2, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                          transition={{ duration: 1.12, delay: 0.36, ease: heroMotionEase }}
                           style={{ filter: "drop-shadow(0 0 10px rgba(16,185,129,0.22))" }}
                         />
                         {WEEKLY_CHART_POINTS.map((point, index) => (
@@ -406,25 +407,32 @@ export default function Index() {
                             animate={!hasViewportObserver || shouldReduceMotion ? { scale: 1, opacity: 1 } : undefined}
                             whileInView={hasViewportObserver ? { scale: 1, opacity: 1 } : undefined}
                             viewport={heroMotionViewport}
-                            transition={{ delay: index * 0.08 + 0.52, duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+                            transition={{ delay: index * 0.06 + 0.92, duration: 0.38, ease: heroMotionEase }}
                           />
                         ))}
                       </motion.svg>
-                      <div className="relative z-10 flex h-full items-end gap-2">
+                      <div className="relative z-10 flex h-full items-end gap-2.5">
                       {WEEKLY_ACCURACY.map((height, index) => (
                         <div key={height} className="flex flex-1 flex-col items-center gap-2">
                           <motion.div
-                            className="landing-bar-glow w-full rounded-t-md bg-[linear-gradient(180deg,rgba(16,185,129,0.9),rgba(16,185,129,0.15))]"
+                            className="landing-bar-glow w-full max-w-[22px] rounded-t-[8px] bg-[linear-gradient(180deg,rgba(16,185,129,0.82),rgba(16,185,129,0.12))]"
                             initial={shouldReduceMotion ? false : { scaleY: 0.18, opacity: 0.35 }}
                             animate={!hasViewportObserver || shouldReduceMotion ? { scaleY: 1, opacity: 1 } : undefined}
                             whileInView={hasViewportObserver ? { scaleY: 1, opacity: 1 } : undefined}
                             viewport={heroMotionViewport}
-                            transition={{ delay: index * 0.09 + 0.14, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                            transition={{ delay: index * 0.07 + 1.18, duration: 0.62, ease: heroMotionEase }}
                             style={{ height: `${height}%`, originY: 1 }}
                           />
-                          <span className="text-[11px] text-slate-500">
+                          <motion.span
+                            initial={shouldReduceMotion ? false : { opacity: 0, y: 4 }}
+                            animate={!hasViewportObserver || shouldReduceMotion ? { opacity: 1, y: 0 } : undefined}
+                            whileInView={hasViewportObserver ? { opacity: 1, y: 0 } : undefined}
+                            viewport={heroMotionViewport}
+                            transition={{ delay: index * 0.05 + 1.34, duration: 0.32, ease: heroMotionEase }}
+                            className="text-[11px] text-slate-500"
+                          >
                             {WEEKLY_DAY_LABELS[index]}
-                          </span>
+                          </motion.span>
                         </div>
                       ))}
                     </div>
@@ -462,7 +470,7 @@ export default function Index() {
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700">
                 Intent pencarian yang dilayani
               </p>
-              <h2 className="mt-3 text-[1.95rem] font-semibold leading-tight tracking-tight text-slate-950 md:text-[2.1rem]">
+              <h2 className="mt-3 text-[1.82rem] font-semibold leading-tight tracking-tight text-slate-950 md:text-[2.02rem]">
                 Dari keyword ke modul yang relevan tanpa membuat pengunjung tersesat di halaman.
               </h2>
             </div>
@@ -472,7 +480,7 @@ export default function Index() {
           </div>
           <div className="mt-6 grid gap-3 md:grid-cols-3">
             {KEYWORD_TILES.map((item) => (
-              <div key={item} className="rounded-[22px] border border-slate-200 bg-white px-4 py-4 text-sm leading-7 text-slate-600">
+              <div key={item} className="rounded-[24px] border border-slate-200 bg-white px-4 py-4 text-sm leading-7 text-slate-600 shadow-[0_10px_24px_rgba(15,23,42,0.03)] transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-200 hover:shadow-[0_16px_30px_rgba(15,23,42,0.06)]">
                 {item}
               </div>
             ))}
@@ -480,13 +488,13 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="container mx-auto max-w-6xl px-5 py-14 md:px-6" data-reveal>
+      <section className="container mx-auto max-w-6xl px-5 py-16 md:px-6 md:py-18" data-reveal>
         <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700">
               Kenapa lebih enak dipakai
             </p>
-            <h2 className="mt-3 text-[2rem] font-semibold leading-tight tracking-tight text-slate-950 md:text-[2.3rem]">
+            <h2 className="mt-3 text-[1.88rem] font-semibold leading-tight tracking-tight text-slate-950 md:text-[2.14rem]">
               Alur yang rapi membuat latihan terasa ringan sejak sesi pertama.
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600">
@@ -496,7 +504,7 @@ export default function Index() {
 
           <div className="grid gap-4">
             {BENEFITS.map((item) => (
-              <div key={item.title} className="rounded-[26px] border border-black/10 bg-white px-5 py-5">
+              <div key={item.title} className="rounded-[24px] border border-black/10 bg-white px-5 py-5 shadow-[0_10px_24px_rgba(15,23,42,0.03)] transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-200 hover:shadow-[0_16px_28px_rgba(15,23,42,0.06)]">
                 <p className="text-base font-semibold leading-7 text-slate-950">{item.title}</p>
                 <p className="mt-2 text-sm leading-7 text-slate-600">{item.body}</p>
               </div>
@@ -505,13 +513,13 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="container mx-auto max-w-6xl px-5 py-14 md:px-6" data-reveal>
+      <section className="container mx-auto max-w-6xl px-5 py-16 md:px-6 md:py-18" data-reveal>
         <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700">
               Cara pakai untuk persiapan tes kerja
             </p>
-            <h2 className="mt-3 text-[2.05rem] font-semibold leading-tight tracking-tight text-slate-950 md:text-[2.35rem]">
+            <h2 className="mt-3 text-[1.92rem] font-semibold leading-tight tracking-tight text-slate-950 md:text-[2.18rem]">
               Mulai dari kategori yang paling dekat dengan target Anda. Bukan dari semua modul sekaligus.
             </h2>
           </div>
@@ -526,7 +534,7 @@ export default function Index() {
 
         <div className="grid gap-4 lg:grid-cols-3">
           {HOW_STEPS.map((item) => (
-            <div key={item.step} className="rounded-[28px] border border-black/10 bg-white p-6">
+            <div key={item.step} className="rounded-[24px] border border-black/10 bg-white p-6 shadow-[0_10px_24px_rgba(15,23,42,0.03)] transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-200 hover:shadow-[0_16px_28px_rgba(15,23,42,0.06)]">
               <div className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-slate-50 text-sm font-semibold text-slate-950">
                 {item.step}
               </div>
@@ -537,13 +545,13 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="container mx-auto max-w-6xl px-5 py-14 md:px-6" data-reveal>
+      <section className="container mx-auto max-w-6xl px-5 py-16 md:px-6 md:py-18" data-reveal>
         <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700">
               Katalog modul
             </p>
-            <h2 className="mt-3 text-[2rem] font-semibold leading-tight tracking-tight text-slate-950 md:text-[2.3rem]">
+            <h2 className="mt-3 text-[1.9rem] font-semibold leading-tight tracking-tight text-slate-950 md:text-[2.16rem]">
               {ALL_TESTS.length} modul, dibagi lebih rapi supaya tidak terasa seperti daftar yang datar.
             </h2>
             <p className="mt-4 text-sm leading-7 text-slate-600">
@@ -561,7 +569,7 @@ export default function Index() {
 
         <div className="grid gap-4 lg:grid-cols-3">
           {CATEGORY_COLUMNS.map((group) => (
-            <div key={group.title} className="rounded-[28px] border border-black/10 bg-white p-6">
+            <div key={group.title} className="rounded-[24px] border border-black/10 bg-white p-6 shadow-[0_10px_24px_rgba(15,23,42,0.03)] transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-200 hover:shadow-[0_16px_28px_rgba(15,23,42,0.06)]">
               <div className="flex items-center gap-2">
                 <LayoutGrid className="h-4 w-4 text-emerald-700" />
                 <p className="text-lg font-semibold tracking-tight text-slate-950">{group.title}</p>
@@ -587,7 +595,7 @@ export default function Index() {
             <Link
               key={test.id}
               to={test.path}
-              className="group rounded-[22px] border border-black/10 bg-white px-4 py-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-700/35 hover:bg-emerald-50/30"
+              className="group rounded-[24px] border border-black/10 bg-white px-4 py-4 shadow-[0_10px_24px_rgba(15,23,42,0.03)] transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-700/35 hover:bg-emerald-50/30 hover:shadow-[0_16px_28px_rgba(15,23,42,0.06)]"
             >
               <p className="text-sm font-semibold leading-snug text-slate-950 transition-colors group-hover:text-emerald-800">
                 {test.name}
@@ -608,7 +616,7 @@ export default function Index() {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700">
               Bukti yang terlihat di produk
             </p>
-            <h2 className="mt-3 text-[2rem] font-semibold leading-tight tracking-tight text-slate-950 md:text-[2.25rem]">
+            <h2 className="mt-3 text-[1.9rem] font-semibold leading-tight tracking-tight text-slate-950 md:text-[2.12rem]">
               Kredibilitas datang dari struktur yang rapi, bukan dari klaim yang terdengar seperti template.
             </h2>
             <p className="mt-4 text-sm leading-7 text-slate-600">
@@ -617,7 +625,7 @@ export default function Index() {
           </div>
           <div className="grid gap-3">
             {PRODUCT_PROOF.map((item) => (
-              <div key={item} className="rounded-[22px] border border-black/10 bg-white px-5 py-4 text-sm leading-7 text-slate-950">
+              <div key={item} className="rounded-[24px] border border-black/10 bg-white px-5 py-4 text-sm leading-7 text-slate-950 shadow-[0_10px_24px_rgba(15,23,42,0.03)] transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-200 hover:shadow-[0_16px_28px_rgba(15,23,42,0.06)]">
                 {item}
               </div>
             ))}
