@@ -29,24 +29,24 @@ const HERO_ACTIVITY = [
 ];
 
 const WEEKLY_SERIES = [
-  { label: "Sn", bar: 40 },
-  { label: "Sl", bar: 54 },
-  { label: "Rb", bar: 52 },
-  { label: "Km", bar: 68 },
-  { label: "Jm", bar: 62 },
-  { label: "Sb", bar: 78 },
-  { label: "Mg", bar: 72 },
+  { label: "Sn", x: 20, y: 62 },
+  { label: "Sl", x: 66, y: 48 },
+  { label: "Rb", x: 112, y: 46 },
+  { label: "Km", x: 158, y: 20 },
+  { label: "Jm", x: 204, y: 32 },
+  { label: "Sb", x: 250, y: 14 },
+  { label: "Mg", x: 296, y: 20 },
 ];
-const WEEKLY_CHART_PATH = "M 18 68 C 34 62, 48 52, 64 46 C 78 40, 94 42, 110 44 C 124 46, 140 26, 156 18 C 170 12, 186 26, 202 28 C 216 30, 232 12, 248 10 C 262 8, 278 14, 294 18";
-const WEEKLY_CHART_AREA_PATH = "M 18 68 C 34 62, 48 52, 64 46 C 78 40, 94 42, 110 44 C 124 46, 140 26, 156 18 C 170 12, 186 26, 202 28 C 216 30, 232 12, 248 10 C 262 8, 278 14, 294 18 L 294 84 L 18 84 Z";
+const WEEKLY_CHART_PATH = "M 20 62 C 32 58, 48 50, 66 48 C 82 46, 96 48, 112 46 C 128 44, 142 26, 158 20 C 174 14, 188 30, 204 32 C 220 34, 234 16, 250 14 C 266 12, 282 18, 296 20";
+const WEEKLY_CHART_AREA_PATH = "M 20 62 C 32 58, 48 50, 66 48 C 82 46, 96 48, 112 46 C 128 44, 142 26, 158 20 C 174 14, 188 30, 204 32 C 220 34, 234 16, 250 14 C 266 12, 282 18, 296 20 L 296 84 L 20 84 Z";
 const WEEKLY_CHART_POINTS = [
-  { cx: 18, cy: 68 },
-  { cx: 64, cy: 46 },
-  { cx: 110, cy: 44 },
-  { cx: 156, cy: 18 },
-  { cx: 202, cy: 28 },
-  { cx: 248, cy: 10 },
-  { cx: 294, cy: 18 },
+  { cx: 20, cy: 62 },
+  { cx: 66, cy: 48 },
+  { cx: 112, cy: 46 },
+  { cx: 158, cy: 20 },
+  { cx: 204, cy: 32 },
+  { cx: 250, cy: 14 },
+  { cx: 296, cy: 20 },
 ];
 
 const TRUST_LABELS = ["BUMN", "CPNS", "Bank", "Admin", "Operator", "QC", "Back Office", "FMCG"];
@@ -418,24 +418,15 @@ export default function Index() {
                           />
                         ))}
                       </motion.svg>
-                      <div className="absolute inset-x-4 bottom-3 z-10 grid h-[56px] grid-cols-7 items-end">
+                      <div className="absolute inset-x-4 bottom-3 z-10 grid h-[24px] grid-cols-7 items-end">
                       {WEEKLY_SERIES.map((item, index) => (
                         <div key={item.label} className="flex flex-col items-center gap-2">
-                          <motion.div
-                            className="landing-bar-glow w-full max-w-[22px] rounded-t-[8px] bg-[linear-gradient(180deg,rgba(16,185,129,0.82),rgba(16,185,129,0.12))]"
-                            initial={shouldReduceMotion ? false : { scaleY: 0.18, opacity: 0.35 }}
-                            animate={!hasViewportObserver || shouldReduceMotion ? { scaleY: 1, opacity: 1 } : undefined}
-                            whileInView={hasViewportObserver ? { scaleY: 1, opacity: 1 } : undefined}
-                            viewport={heroMotionViewport}
-                            transition={{ delay: index * 0.07 + 1.18, duration: 0.62, ease: heroMotionEase }}
-                            style={{ height: `${item.bar}%`, originY: 1 }}
-                          />
                           <motion.span
                             initial={shouldReduceMotion ? false : { opacity: 0, y: 4 }}
                             animate={!hasViewportObserver || shouldReduceMotion ? { opacity: 1, y: 0 } : undefined}
                             whileInView={hasViewportObserver ? { opacity: 1, y: 0 } : undefined}
                             viewport={heroMotionViewport}
-                            transition={{ delay: index * 0.05 + 1.34, duration: 0.32, ease: heroMotionEase }}
+                            transition={{ delay: index * 0.04 + 1.08, duration: 0.32, ease: heroMotionEase }}
                             className="text-[11px] text-slate-500"
                           >
                             {item.label}
