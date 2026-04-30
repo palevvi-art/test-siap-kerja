@@ -2,6 +2,26 @@ import Layout from "@/components/Layout";
 import TestCard from "@/components/TestCard";
 import { ALL_TESTS, type TestMeta } from "@/lib/testRegistry";
 import { getResults } from "@/lib/storage";
+import { Link } from "react-router-dom";
+
+const EXTRA_TOOLS = [
+  {
+    title: "Tes Koran Digital",
+    description:
+      "Versi terpisah untuk melatih ritme penjumlahan berulang, kestabilan akurasi, dan daya tahan fokus.",
+    duration: "3 menit",
+    href: "/eksplorasi/koran-digital",
+    badge: "Tambahan",
+  },
+  {
+    title: "Tes MBTI Ringkas",
+    description:
+      "Eksplorasi preferensi kerja, komunikasi, dan pengambilan keputusan dalam format yang dipisahkan dari modul kognitif utama.",
+    duration: "16 pertanyaan",
+    href: "/eksplorasi/mbti",
+    badge: "Kepribadian",
+  },
+] as const;
 
 const CATEGORY_ORDER: TestMeta["category"][] = [
   "logika",
@@ -74,6 +94,45 @@ const TestSelection = () => {
         </div>
 
         <div className="space-y-10">
+          <section>
+            <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+              <div>
+                <h2 className="text-lg font-semibold tracking-tight text-foreground">
+                  Tes Tambahan
+                </h2>
+                <p className="text-sm leading-6 text-muted-foreground">
+                  Modul terpisah dari katalog utama untuk eksplorasi khusus dan sesi latihan yang lebih spesifik.
+                </p>
+              </div>
+              <div className="rounded-full border border-border bg-card px-3 py-1 text-xs text-muted-foreground">
+                {EXTRA_TOOLS.length} modul tambahan
+              </div>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {EXTRA_TOOLS.map((tool) => (
+                <Link
+                  key={tool.href}
+                  to={tool.href}
+                  className="group flex flex-col rounded-lg border border-border bg-card p-4 transition-all duration-150 hover:-translate-y-px hover:border-primary/30 hover:shadow-sm"
+                >
+                  <div className="mb-3 flex items-start justify-between">
+                    <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                      {tool.badge}
+                    </span>
+                    <span className="text-xs text-muted-foreground/70">{tool.duration}</span>
+                  </div>
+                  <h3 className="mb-1 text-sm font-semibold leading-snug text-card-foreground group-hover:text-primary transition-colors">
+                    {tool.title}
+                  </h3>
+                  <p className="flex-1 text-xs leading-relaxed text-muted-foreground">
+                    {tool.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
+
           {groupedTests.map((group) => (
             <section key={group.category}>
               <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">

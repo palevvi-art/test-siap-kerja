@@ -11,6 +11,8 @@ const TestIntro = lazy(() => import("./pages/TestIntro"));
 const TestRunner = lazy(() => import("./pages/TestRunner"));
 const Results = lazy(() => import("./pages/Results"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
+const StandaloneKoranDigital = lazy(() => import("./pages/StandaloneKoranDigital"));
+const StandaloneMbti = lazy(() => import("./pages/StandaloneMbti"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -38,6 +40,8 @@ const App = () => (
             <Route path="/tes" element={<TestSelection />} />
             <Route path="/tes/:testId" element={<TestIntro />} />
             <Route path="/tes/:testId/mulai" element={<TestRunner />} />
+            <Route path="/eksplorasi/koran-digital" element={<StandaloneKoranDigital />} />
+            <Route path="/eksplorasi/mbti" element={<StandaloneMbti />} />
             <Route path="/hasil/:id" element={<Results />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="*" element={<NotFound />} />
