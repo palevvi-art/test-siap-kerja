@@ -21,12 +21,33 @@ const HERO_METRICS = [
   { label: "Akses", value: "Tanpa login" },
 ];
 
+const HERO_ACTIVITY = [
+  { title: "Kraepelin Digital", detail: "Sesi selesai • 91% akurasi", time: "Baru saja" },
+  { title: "Deret Angka", detail: "Latihan lanjutan • 4 menit", time: "2 menit lalu" },
+  { title: "Fokus Warna", detail: "Perlu latihan ulang", time: "5 menit lalu" },
+];
+
 const TRUST_LABELS = ["BUMN", "CPNS", "Bank", "Admin", "Operator", "QC", "Back Office", "FMCG"];
 
 const KEYWORD_TILES = [
   "Tes kognitif online gratis untuk seleksi kerja",
   "Simulasi tes BUMN dan CPNS tanpa registrasi",
   "Latihan Kraepelin, deret angka, fokus, verbal, dan memori",
+];
+
+const BENEFITS = [
+  {
+    title: "Mulai dari kategori yang paling relevan",
+    body: "Modul dibagi rapi agar Anda bisa langsung fokus ke jalur latihan yang paling dekat dengan target seleksi.",
+  },
+  {
+    title: "Buka hasil tanpa menunggu lama",
+    body: "Akurasi dan ringkasan performa tampil cepat, sementara detail visual tetap tersedia saat dibutuhkan.",
+  },
+  {
+    title: "Latihan terasa ringan, bukan melelahkan",
+    body: "Sesi singkat memudahkan Anda berlatih rutin tanpa harus menyediakan waktu panjang setiap hari.",
+  },
 ];
 
 const HOW_STEPS = [
@@ -97,6 +118,11 @@ export default function Index() {
   useEffect(() => {
     const nodes = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
     if (nodes.length === 0) return;
+
+    if (typeof window === "undefined" || typeof window.IntersectionObserver === "undefined") {
+      nodes.forEach((node) => node.classList.add("reveal-visible"));
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
