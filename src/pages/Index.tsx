@@ -9,7 +9,6 @@ import {
   CheckCircle2,
   Clock3,
   LayoutGrid,
-  MoveRight,
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
@@ -17,9 +16,9 @@ import PageMeta from "@/components/PageMeta";
 import { ALL_TESTS } from "@/lib/testRegistry";
 
 const HERO_STATS = [
-  { label: "Modul aktif", value: `${ALL_TESTS.length}`, note: "Lintas logika, memori, fokus, verbal" },
-  { label: "Durasi efektif", value: "2-5 mnt", note: "Cocok untuk sesi latihan singkat" },
-  { label: "Buka cepat", value: "Tanpa login", note: "Langsung mulai dari browser" },
+  { label: "Modul tersedia", value: `${ALL_TESTS.length}`, note: "Logika, memori, numerik, fokus, verbal" },
+  { label: "Durasi per sesi", value: "2-5 menit", note: "Ringkas untuk latihan harian" },
+  { label: "Akses", value: "Tanpa login", note: "Langsung mulai dari browser" },
 ];
 
 const HERO_ACTIVITY = [
@@ -28,45 +27,49 @@ const HERO_ACTIVITY = [
   { title: "Fokus Warna", detail: "Perlu latihan ulang", time: "5 menit lalu" },
 ];
 
-const TRUST_TAGS = ["BUMN", "CPNS", "Bank", "Admin", "Operator", "QC", "Back Office", "FMCG"];
+const KEYWORD_GROUPS = [
+  "Tes kognitif online gratis untuk seleksi kerja",
+  "Simulasi tes BUMN dan CPNS tanpa registrasi",
+  "Latihan Kraepelin, deret angka, fokus, verbal, dan memori",
+];
 
-const WHY_BLOCKS = [
+const BENEFITS = [
   {
-    title: "Pilih kategori dulu, bukan dilempar ke daftar panjang",
-    body: "User baru langsung paham harus mulai dari numerik, verbal, fokus, atau ketelitian. Ini membuat pengalaman terasa lebih rapi sejak klik pertama.",
+    title: "Mulai dari kategori yang paling relevan",
+    body: "Modul dibagi rapi agar Anda bisa langsung fokus ke jalur latihan yang paling dekat dengan target seleksi.",
   },
   {
-    title: "Setiap modul punya intro yang jelas",
-    body: "Halaman intro membantu SEO dan membantu user memahami apa yang sedang mereka kerjakan sebelum masuk ke sesi tes.",
+    title: "Buka hasil tanpa menunggu lama",
+    body: "Akurasi dan ringkasan performa tampil cepat, sementara detail visual tetap tersedia saat dibutuhkan.",
   },
   {
-    title: "Hasil inti muncul cepat",
-    body: "Akurasi dan ringkasan performa langsung terbaca. Detail visual tetap ada, tetapi tidak lagi menahan keseluruhan halaman.",
+    title: "Latihan terasa ringan, bukan melelahkan",
+    body: "Sesi singkat memudahkan Anda berlatih rutin tanpa harus menyediakan waktu panjang setiap hari.",
   },
 ];
 
 const PREP_STEPS = [
   {
     step: "01",
-    title: "Pilih kategori yang paling dekat dengan target seleksi",
-    body: "Numerik untuk admin dan operasional, verbal untuk tes yang banyak bermain bahasa, fokus dan ketelitian untuk role yang butuh akurasi konsisten.",
+    title: "Pilih kategori yang paling dekat dengan target tes Anda",
+    body: "Numerik untuk admin dan operasional, verbal untuk tes berbasis bahasa, fokus dan ketelitian untuk role yang menuntut akurasi stabil.",
   },
   {
     step: "02",
-    title: "Kerjakan 2 sampai 3 modul inti dalam satu sesi",
-    body: "Tidak perlu menyapu semua modul sekaligus. Sesi yang singkat tapi terarah biasanya lebih efektif daripada latihan yang terlalu panjang.",
+    title: "Kerjakan dua sampai tiga modul inti dalam satu sesi",
+    body: "Latihan yang singkat tapi terarah biasanya lebih efektif daripada menyapu semua modul sekaligus.",
   },
   {
     step: "03",
-    title: "Ulangi area yang performanya masih lemah",
-    body: "Begitu hasil terbuka, user bisa langsung memilih modul mana yang perlu diulang tanpa harus menebak-nebak lagi.",
+    title: "Ulangi modul yang performanya masih turun",
+    body: "Setelah hasil terbuka, Anda bisa langsung melihat area mana yang perlu dilatih ulang tanpa menebak-nebak.",
   },
 ];
 
-const SPOTLIGHTS = [
+const CATALOG_SPOTLIGHTS = [
   {
     title: "Numerik dan logika",
-    body: "Deret angka, logika pola, hitung cepat, sampai Kraepelin untuk ritme dan akurasi kerja numerik.",
+    body: "Deret angka, logika pola, hitung cepat, dan Kraepelin untuk ritme kerja numerik.",
     items: ["Deret Angka", "Logika Pola", "Kraepelin Digital"],
   },
   {
@@ -81,11 +84,7 @@ const SPOTLIGHTS = [
   },
 ];
 
-const FAQ_PREVIEW = [
-  "Tes kognitif online gratis untuk latihan seleksi kerja",
-  "Simulasi tes BUMN dan CPNS tanpa registrasi",
-  "Latihan Kraepelin, deret angka, fokus, verbal, dan memori",
-];
+const TRUST_TAGS = ["BUMN", "CPNS", "Bank", "Admin", "Operator", "QC", "Back Office", "FMCG"];
 
 const homepageSchema = [
   {
@@ -166,17 +165,17 @@ export default function Index() {
 
       <section className="relative overflow-hidden border-b border-border/60">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(29,155,139,0.11),transparent_24%),radial-gradient(circle_at_85%_18%,rgba(15,23,42,0.06),transparent_20%)]" />
-        <div className="container relative mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-[0.95fr_1.05fr] md:items-center md:py-20">
+        <div className="container relative mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-[0.92fr_1.08fr] md:items-center md:py-20">
           <div className="max-w-xl">
             <p className="landing-hero-copy landing-stagger-1 text-xs font-semibold uppercase tracking-[0.26em] text-primary">
               Platform Tes Kinerja Kognitif
             </p>
             <h1 className="landing-hero-copy landing-stagger-2 mt-4 text-4xl font-bold leading-[1.02] tracking-tight text-foreground md:text-[4rem]">
-              Landing page yang sekarang langsung terasa seperti produk yang siap dipakai.
+              Latihan tes kerja online yang terasa rapi, cepat, dan mudah diulang.
             </h1>
             <p className="landing-hero-copy landing-stagger-3 mt-5 text-base leading-8 text-muted-foreground md:text-lg">
               {ALL_TESTS.length} modul latihan kognitif gratis untuk BUMN, CPNS, bank, dan swasta.
-              Tanpa registrasi. Tanpa alur yang bikin capek. User datang, pilih kategori, lalu langsung latihan.
+              Tanpa registrasi. Tanpa bank soal statis. Fokus pada tugas yang benar-benar dilatih.
             </p>
 
             <div className="landing-hero-copy landing-stagger-4 mt-8 flex flex-wrap gap-3">
@@ -329,8 +328,8 @@ export default function Index() {
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                 Intent pencarian yang dilayani
               </p>
-              <h2 className="mt-3 text-[2.15rem] font-semibold leading-tight tracking-tight text-foreground">
-                User bisa datang dari keyword, mendarat di intro yang tepat, lalu langsung masuk ke tes.
+              <h2 className="mt-3 text-[2.1rem] font-semibold leading-tight tracking-tight text-foreground">
+                Dari keyword ke modul yang tepat, tanpa memaksa pengunjung membaca terlalu banyak.
               </h2>
             </div>
             <div className="rounded-full border border-border bg-background px-4 py-2 text-sm text-muted-foreground">
@@ -338,9 +337,33 @@ export default function Index() {
             </div>
           </div>
           <div className="mt-6 grid gap-3 md:grid-cols-3">
-            {FAQ_PREVIEW.map((item) => (
+            {KEYWORD_GROUPS.map((item) => (
               <div key={item} className="rounded-2xl border border-border/80 bg-background px-4 py-4 text-sm leading-7 text-muted-foreground">
                 {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="container mx-auto max-w-6xl px-6 py-12" data-reveal>
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+              Kenapa terasa lebih enak dipakai
+            </p>
+            <h2 className="mt-3 text-[2.25rem] font-semibold leading-tight tracking-tight text-foreground">
+              Struktur yang baik membuat latihan lebih cepat dimulai dan lebih mudah diulang.
+            </h2>
+            <p className="mt-4 max-w-xl text-sm leading-7 text-muted-foreground">
+              Landing page ini difokuskan untuk membantu pengunjung bergerak cepat: paham konteks, memilih jalur latihan, lalu masuk ke tes tanpa friksi yang tidak perlu.
+            </p>
+          </div>
+          <div className="grid gap-4">
+            {BENEFITS.map((item) => (
+              <div key={item.title} className="rounded-[22px] border border-border bg-card p-5">
+                <p className="text-base font-semibold leading-7 text-foreground">{item.title}</p>
+                <p className="mt-2 text-sm leading-7 text-muted-foreground">{item.body}</p>
               </div>
             ))}
           </div>
@@ -354,7 +377,7 @@ export default function Index() {
               Cara pakai untuk persiapan tes kerja
             </p>
             <h2 className="mt-3 text-[2.35rem] font-semibold leading-tight tracking-tight text-foreground">
-              Jangan mulai dari semua modul. Mulai dari jalur yang paling dekat dengan target seleksi Anda.
+              Mulai dari kategori yang paling dekat dengan target Anda, bukan dari semua modul sekaligus.
             </h2>
           </div>
           <Link
@@ -362,7 +385,7 @@ export default function Index() {
             className="inline-flex items-center gap-2 rounded-lg bg-foreground px-5 py-3 text-sm font-semibold text-background transition-opacity hover:opacity-85"
           >
             Susun Latihan Sekarang
-            <MoveRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
@@ -380,40 +403,16 @@ export default function Index() {
       </section>
 
       <section className="container mx-auto max-w-6xl px-6 py-12" data-reveal>
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-              Yang dibuat lebih benar
-            </p>
-            <h2 className="mt-3 text-[2.1rem] font-semibold leading-tight tracking-tight text-foreground">
-              Landing page ini sekarang dibangun untuk membantu user memilih, bukan membuat user membaca terlalu banyak.
-            </h2>
-            <p className="mt-4 max-w-xl text-sm leading-7 text-muted-foreground">
-              Yang penting bukan banyak elemen, tapi urutan yang masuk akal. Hero meyakinkan, intro mengarahkan, modul memudahkan eksplorasi, dan hasil menjaga user kembali berlatih.
-            </p>
-          </div>
-          <div className="grid gap-4">
-            {WHY_BLOCKS.map((item) => (
-              <div key={item.title} className="rounded-[22px] border border-border bg-card p-5">
-                <p className="text-base font-semibold leading-7 text-foreground">{item.title}</p>
-                <p className="mt-2 text-sm leading-7 text-muted-foreground">{item.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="container mx-auto max-w-6xl px-6 py-12" data-reveal>
         <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
               Katalog modul
             </p>
             <h2 className="mt-3 text-[2.2rem] font-semibold leading-tight tracking-tight text-foreground">
-              {ALL_TESTS.length} modul tersedia, tapi sekarang ditampilkan dengan rasa yang lebih terkurasi.
+              {ALL_TESTS.length} modul tersedia dalam tampilan yang lebih terkurasi dan lebih mudah dipindai.
             </h2>
             <p className="mt-4 text-sm leading-7 text-muted-foreground">
-              Bukan grid panjang yang dingin. Bagian ini memperlihatkan spektrum latihan yang tersedia sambil tetap menjaga rasa premium dan scanability yang baik.
+              Bukan grid panjang yang dingin. Bagian ini memperlihatkan spektrum latihan yang tersedia sambil tetap menjaga rasa premium.
             </p>
           </div>
           <Link
@@ -426,7 +425,7 @@ export default function Index() {
         </div>
 
         <div className="grid gap-4 lg:grid-cols-3">
-          {SPOTLIGHTS.map((group) => (
+          {CATALOG_SPOTLIGHTS.map((group) => (
             <div key={group.title} className="rounded-[24px] border border-border bg-card p-6">
               <div className="flex items-center gap-2">
                 <LayoutGrid className="h-4 w-4 text-primary" />
@@ -475,17 +474,17 @@ export default function Index() {
               Bukti yang terlihat di produk
             </p>
             <h2 className="mt-3 text-[2.2rem] font-semibold leading-tight tracking-tight text-foreground">
-              Karena belum ada backend dan social proof publik, bukti terbaik harus datang dari struktur produknya sendiri.
+              Kredibilitas datang dari struktur yang rapi, bukan dari klaim yang terdengar seperti template.
             </h2>
             <p className="mt-4 text-sm leading-7 text-muted-foreground">
-              Itu kenapa saya pakai proof yang lebih jujur: intro per modul, katalog yang terasa teratur, dan hasil yang lebih cepat terbuka. Bukan klaim kosong yang terdengar seperti template.
+              Intro per modul, katalog yang teratur, dan hasil yang cepat terbuka memberi bukti yang lebih jujur daripada social proof palsu atau copy yang terlalu menjanjikan.
             </p>
           </div>
           <div className="grid gap-3">
             {[
-              "Setiap modul punya intro, bukan langsung lempar user ke soal.",
-              "Kategori membantu user memilih jalur latihan yang relevan.",
-              "Halaman hasil terasa cepat dan tetap informatif.",
+              "Setiap modul punya intro yang menjelaskan apa yang sedang dilatih.",
+              "Kategori membantu memilih jalur yang paling relevan lebih cepat.",
+              "Halaman hasil tetap terasa ringan sekalipun informasi yang dibawa cukup lengkap.",
             ].map((item) => (
               <div key={item} className="rounded-[20px] border border-border bg-card px-5 py-4 text-sm leading-7 text-foreground">
                 {item}
@@ -503,10 +502,10 @@ export default function Index() {
                 Siap mulai latihan
               </p>
               <h2 className="mt-3 text-[2.3rem] font-semibold leading-tight tracking-tight text-foreground">
-                Kalau tujuannya siap tes kerja, langkah terbaik setelah ini adalah mulai dari 2 sampai 3 modul inti.
+                Mulai dari dua atau tiga modul inti, lalu bangun ritme latihan yang konsisten.
               </h2>
               <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                Tidak perlu menunggu setup apa pun. Buka katalog, pilih kategori, lalu kerjakan modul yang paling mendekati pola tes target Anda.
+                Tidak perlu setup tambahan. Buka katalog, pilih kategori yang paling relevan, lalu kerjakan modul yang mendekati pola tes target Anda.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -514,7 +513,7 @@ export default function Index() {
                 to="/tes"
                 className="inline-flex items-center gap-2 rounded-lg bg-foreground px-5 py-3 text-sm font-semibold text-background transition-opacity hover:opacity-85"
               >
-                Mulai dari Katalog
+                Buka Katalog Tes
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
@@ -528,13 +527,32 @@ export default function Index() {
         </div>
       </section>
 
+      <section className="container mx-auto max-w-6xl px-6 py-10" data-reveal>
+        <p className="text-center text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+          Relevan untuk pola seleksi yang sering dicari
+        </p>
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-2.5">
+          {TRUST_TAGS.map((item) => (
+            <div
+              key={item}
+              className="rounded-full border border-border bg-card px-4 py-2 text-xs font-medium text-muted-foreground"
+            >
+              {item}
+            </div>
+          ))}
+        </div>
+      </section>
+
       <footer className="border-t border-border/60 py-8">
         <div className="container mx-auto flex max-w-6xl items-center justify-between px-6">
           <div>
             <p className="text-sm font-semibold text-foreground">KognitiF</p>
             <p className="text-xs text-muted-foreground">Latihan tes kinerja kognitif online gratis.</p>
           </div>
-          <Link to="/tes" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+          <Link
+            to="/tes"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
             Buka Modul Tes
           </Link>
         </div>
