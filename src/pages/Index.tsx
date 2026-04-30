@@ -30,16 +30,16 @@ const HERO_ACTIVITY = [
 
 const WEEKLY_ACCURACY = [40, 54, 52, 68, 62, 78, 72];
 const WEEKLY_DAY_LABELS = ["Sn", "Sl", "Rb", "Km", "Jm", "Sb", "Mg"];
-const WEEKLY_CHART_PATH = "M 8 122 C 20 116, 32 104, 51 96 C 68 88, 80 86, 94 88 C 108 90, 120 64, 137 54 C 150 46, 164 62, 180 60 C 196 58, 210 28, 223 18 C 238 10, 250 18, 266 26";
-const WEEKLY_CHART_AREA_PATH = "M 8 122 C 20 116, 32 104, 51 96 C 68 88, 80 86, 94 88 C 108 90, 120 64, 137 54 C 150 46, 164 62, 180 60 C 196 58, 210 28, 223 18 C 238 10, 250 18, 266 26 L 266 132 L 8 132 Z";
+const WEEKLY_CHART_PATH = "M 10 108 C 22 100, 34 90, 53 86 C 70 82, 82 86, 96 88 C 110 90, 122 64, 139 54 C 154 46, 168 62, 182 60 C 198 58, 212 34, 225 26 C 238 18, 248 22, 266 32";
+const WEEKLY_CHART_AREA_PATH = "M 10 108 C 22 100, 34 90, 53 86 C 70 82, 82 86, 96 88 C 110 90, 122 64, 139 54 C 154 46, 168 62, 182 60 C 198 58, 212 34, 225 26 C 238 18, 248 22, 266 32 L 266 132 L 10 132 Z";
 const WEEKLY_CHART_POINTS = [
-  { cx: 8, cy: 122 },
-  { cx: 51, cy: 96 },
-  { cx: 94, cy: 88 },
-  { cx: 137, cy: 54 },
-  { cx: 180, cy: 60 },
-  { cx: 223, cy: 18 },
-  { cx: 266, cy: 26 },
+  { cx: 10, cy: 108 },
+  { cx: 53, cy: 86 },
+  { cx: 96, cy: 88 },
+  { cx: 139, cy: 54 },
+  { cx: 182, cy: 60 },
+  { cx: 225, cy: 26 },
+  { cx: 266, cy: 32 },
 ];
 
 const TRUST_LABELS = ["BUMN", "CPNS", "Bank", "Admin", "Operator", "QC", "Back Office", "FMCG"];
