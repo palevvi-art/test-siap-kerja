@@ -155,33 +155,33 @@ export default function Index() {
       </header>
 
       <section className="overflow-hidden border-b border-black/10">
-        <div className="container mx-auto grid max-w-6xl gap-10 px-5 py-12 md:grid-cols-[0.9fr_1.1fr] md:items-center md:px-6 md:py-20">
+        <div className="container mx-auto grid max-w-6xl gap-10 px-5 py-12 md:grid-cols-[0.92fr_1.08fr] md:items-center md:px-6 md:py-16 lg:py-20">
           <div>
             <div className="landing-hero-copy landing-stagger-1 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-slate-600">
               <Sparkles className="h-3.5 w-3.5 text-emerald-700" />
               Latihan Kognitif untuk Seleksi Kerja
             </div>
 
-            <h1 className="landing-hero-copy landing-stagger-2 mt-6 max-w-xl text-4xl font-semibold leading-[0.98] tracking-tight text-slate-950 md:text-[4.4rem]">
+            <h1 className="landing-hero-copy landing-stagger-2 mt-6 max-w-xl text-[2.7rem] font-semibold leading-[0.98] tracking-tight text-slate-950 sm:text-[3.25rem] md:text-[3.7rem] lg:text-[4.4rem]">
               Satu tempat untuk melatih ritme tes kerja dengan tampilan yang lebih tenang dan lebih jelas.
             </h1>
 
-            <p className="landing-hero-copy landing-stagger-3 mt-5 max-w-lg text-base leading-8 text-slate-600 md:text-lg">
+            <p className="landing-hero-copy landing-stagger-3 mt-5 max-w-lg text-[15px] leading-7 text-slate-600 sm:text-base md:text-[17px] md:leading-8">
               {ALL_TESTS.length} modul gratis untuk numerik, memori, fokus, verbal, dan ketelitian.
               Langsung mulai dari browser tanpa akun dan tanpa alur yang membuang waktu.
             </p>
 
-            <div className="landing-hero-copy landing-stagger-4 mt-8 flex flex-wrap gap-3">
+            <div className="landing-hero-copy landing-stagger-4 mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 to="/tes"
-                className="inline-flex items-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-85"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-85"
               >
                 Mulai Tes Gratis
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/tes/kraepelin"
-                className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-medium text-slate-950 transition-colors hover:bg-slate-50"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-medium text-slate-950 transition-colors hover:bg-slate-50"
               >
                 Coba Kraepelin
               </Link>
@@ -204,9 +204,19 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="landing-hero-panel relative rounded-[32px] border border-black bg-[#111111] p-4 text-white shadow-[0_24px_80px_rgba(15,23,42,0.18)]">
-              <div className="rounded-[24px] border border-white/10 bg-[#161616] p-4">
+          <div className="relative md:pl-2 lg:pl-6">
+            <div className="landing-hero-panel relative z-10 rounded-[28px] border border-black bg-[#111111] p-3 text-white shadow-[0_24px_80px_rgba(15,23,42,0.18)] sm:p-4">
+              <div className="rounded-[22px] border border-white/10 bg-[#161616] p-3 sm:p-4">
+                <div className="mb-4 flex items-center justify-between rounded-[18px] border border-white/8 bg-white/[0.03] px-3 py-2">
+                  <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-slate-500">
+                    <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                    Sesi aktif
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[11px] text-slate-400">
+                    <span className="h-2 w-2 rounded-full bg-slate-600" />
+                    Tersimpan lokal
+                  </div>
+                </div>
                 <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-4">
                   <div>
                     <p className="landing-hero-copy landing-stagger-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-emerald-400">
@@ -239,7 +249,7 @@ export default function Index() {
                   </div>
                 </div>
 
-                <div className="mt-4 grid gap-4 lg:grid-cols-[0.94fr_1.06fr]">
+                <div className="mt-4 grid gap-4 xl:grid-cols-[0.94fr_1.06fr]">
                   <div className="landing-hero-copy landing-stagger-6 rounded-[22px] border border-white/10 bg-white/[0.03] p-4">
                     <div className="flex items-center justify-between">
                       <p className="text-sm font-semibold text-white">Riwayat latihan</p>
@@ -271,7 +281,7 @@ export default function Index() {
                         Stabil meningkat
                       </div>
                     </div>
-                    <div className="mt-5 flex h-36 items-end gap-2">
+                    <div className="mt-5 flex h-32 items-end gap-2 sm:h-36">
                       {[44, 60, 58, 80, 74, 92, 86].map((height, index) => (
                         <div key={height} className="flex flex-1 flex-col items-center gap-2">
                           <div
@@ -292,7 +302,7 @@ export default function Index() {
               </div>
             </div>
 
-            <div className="landing-float-delay absolute -left-4 top-8 hidden rounded-[22px] border border-black/10 bg-white px-3 py-2 text-slate-950 shadow-[0_18px_40px_rgba(15,23,42,0.08)] md:block">
+            <div className="landing-float-delay absolute -left-3 top-6 z-20 hidden rounded-[22px] border border-black/10 bg-white px-3 py-2 text-slate-950 shadow-[0_18px_40px_rgba(15,23,42,0.08)] lg:block">
               <div className="flex items-center gap-2 text-sm font-medium">
                 <ShieldCheck className="h-4 w-4 text-emerald-700" />
                 Tanpa registrasi
@@ -300,7 +310,7 @@ export default function Index() {
               <p className="mt-1 text-xs text-slate-500">Langsung mulai dari browser</p>
             </div>
 
-            <div className="landing-float-slow absolute -bottom-4 right-6 hidden rounded-[22px] border border-black/10 bg-white px-3 py-2 text-slate-950 shadow-[0_18px_40px_rgba(15,23,42,0.08)] md:block">
+            <div className="landing-float-slow absolute -bottom-3 right-4 z-20 hidden rounded-[22px] border border-black/10 bg-white px-3 py-2 text-slate-950 shadow-[0_18px_40px_rgba(15,23,42,0.08)] lg:block">
               <div className="flex items-center gap-2 text-sm font-medium">
                 <Sparkles className="h-4 w-4 text-emerald-700" />
                 Hasil transparan
@@ -318,7 +328,7 @@ export default function Index() {
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">
                 Intent pencarian yang dilayani
               </p>
-              <h2 className="mt-3 text-[2.1rem] font-semibold leading-tight tracking-tight text-white">
+              <h2 className="mt-3 text-[1.95rem] font-semibold leading-tight tracking-tight text-white md:text-[2.1rem]">
                 Dari keyword ke modul yang relevan tanpa membuat pengunjung tersesat di halaman.
               </h2>
             </div>
@@ -342,7 +352,7 @@ export default function Index() {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700">
               Kenapa lebih enak dipakai
             </p>
-            <h2 className="mt-3 text-[2.3rem] font-semibold leading-tight tracking-tight text-slate-950">
+            <h2 className="mt-3 text-[2rem] font-semibold leading-tight tracking-tight text-slate-950 md:text-[2.3rem]">
               Alur yang rapi membuat latihan terasa ringan sejak sesi pertama.
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600">
@@ -367,7 +377,7 @@ export default function Index() {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700">
               Cara pakai untuk persiapan tes kerja
             </p>
-            <h2 className="mt-3 text-[2.35rem] font-semibold leading-tight tracking-tight text-slate-950">
+            <h2 className="mt-3 text-[2.05rem] font-semibold leading-tight tracking-tight text-slate-950 md:text-[2.35rem]">
               Mulai dari kategori yang paling dekat dengan target Anda. Bukan dari semua modul sekaligus.
             </h2>
           </div>
@@ -399,7 +409,7 @@ export default function Index() {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700">
               Katalog modul
             </p>
-            <h2 className="mt-3 text-[2.3rem] font-semibold leading-tight tracking-tight text-slate-950">
+            <h2 className="mt-3 text-[2rem] font-semibold leading-tight tracking-tight text-slate-950 md:text-[2.3rem]">
               {ALL_TESTS.length} modul, dibagi lebih rapi supaya tidak terasa seperti daftar yang datar.
             </h2>
             <p className="mt-4 text-sm leading-7 text-slate-600">
@@ -464,7 +474,7 @@ export default function Index() {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700">
               Bukti yang terlihat di produk
             </p>
-            <h2 className="mt-3 text-[2.25rem] font-semibold leading-tight tracking-tight text-slate-950">
+            <h2 className="mt-3 text-[2rem] font-semibold leading-tight tracking-tight text-slate-950 md:text-[2.25rem]">
               Kredibilitas datang dari struktur yang rapi, bukan dari klaim yang terdengar seperti template.
             </h2>
             <p className="mt-4 text-sm leading-7 text-slate-600">
@@ -488,7 +498,7 @@ export default function Index() {
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">
                 Siap mulai latihan
               </p>
-              <h2 className="mt-3 text-[2.3rem] font-semibold leading-tight tracking-tight text-white">
+              <h2 className="mt-3 text-[2.05rem] font-semibold leading-tight tracking-tight text-white md:text-[2.3rem]">
                 Mulai dari dua atau tiga modul inti, lalu bangun ritme latihan yang konsisten.
               </h2>
               <p className="mt-4 text-sm leading-7 text-slate-300">
