@@ -9,6 +9,7 @@ const WorkingMemoryTest = () => {
       description="Mengingat dan mengulang urutan angka untuk mengukur kapasitas daya ingat kerja."
       durationSeconds={180}
       segmentDurationSeconds={30}
+      initialPhase="trial-intro"
     >
       {({ onResponse, isRunning }) => <MemoryEngine onResponse={onResponse} isRunning={isRunning} />}
 

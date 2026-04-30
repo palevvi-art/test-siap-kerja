@@ -11,6 +11,7 @@ interface TestWrapperProps {
   durationSeconds: number;
   segmentDurationSeconds: number;
   maxQuestions?: number;
+  initialPhase?: "intro" | "trial-intro";
   children: (props: {
     onResponse: (correct: boolean, responseTimeMs: number) => void;
     isRunning: boolean;
@@ -24,9 +25,18 @@ interface TestWrapperProps {
 
 const TRIAL_COUNT = 5;
 
-const TestWrapper = ({ testType, testName, description, durationSeconds, segmentDurationSeconds, maxQuestions, children }: TestWrapperProps) => {
+const TestWrapper = ({
+  testType,
+  testName,
+  description,
+  durationSeconds,
+  segmentDurationSeconds,
+  maxQuestions,
+  initialPhase = "intro",
+  children,
+}: TestWrapperProps) => {
   const navigate = useNavigate();
-  const [phase, setPhase] = useState<"intro" | "trial-intro" | "trial" | "trial-done" | "running" | "done">("intro");
+  const [phase, setPhase] = useState<"intro" | "trial-intro" | "trial" | "trial-done" | "running" | "done">(initialPhase);
   const [timeLeft, setTimeLeft] = useState(durationSeconds);
   const [currentSegment, setCurrentSegment] = useState(1);
   const [trialCount, setTrialCount] = useState(0);

@@ -1,0 +1,35 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F7F9FB"/>
+  <rect x="56" y="56" width="1088" height="518" rx="20" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <rect x="96" y="96" width="180" height="36" rx="18" fill="#E7F4F2"/>
+  <text x="124" y="119" fill="#1F7A6B" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2">TES KINERJA KOGNITIF</text>
+  <text x="96" y="240" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="700">KognitiF</text>
+  <text x="96" y="302" fill="#556070" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="400">Latihan tes kerja online gratis untuk fokus,</text>
+  <text x="96" y="344" fill="#556070" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="400">ketelitian, logika, dan daya ingat.</text>
+
+  <rect x="96" y="400" width="228" height="58" rx="12" fill="#111827"/>
+  <text x="136" y="436" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">10 MODUL GRATIS</text>
+
+  <rect x="360" y="400" width="248" height="58" rx="12" fill="#F7F9FB" stroke="#D8E0E8"/>
+  <text x="396" y="436" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600">TANPA REGISTRASI</text>
+
+  <rect x="744" y="130" width="320" height="360" rx="18" fill="#111827"/>
+  <rect x="776" y="170" width="112" height="18" rx="9" fill="#1F7A6B" opacity="0.16"/>
+  <rect x="776" y="206" width="248" height="18" rx="9" fill="#F9FAFB" opacity="0.9"/>
+  <rect x="776" y="240" width="210" height="12" rx="6" fill="#9CA3AF" opacity="0.65"/>
+
+  <rect x="776" y="292" width="256" height="66" rx="14" fill="#F9FAFB"/>
+  <text x="806" y="328" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">Kraepelin Digital</text>
+  <text x="806" y="349" fill="#6B7280" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="500">Konsistensi hitung dan ritme kerja</text>
+
+  <rect x="776" y="378" width="122" height="70" rx="14" fill="#1F7A6B"/>
+  <text x="806" y="407" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.2">FOKUS</text>
+  <text x="806" y="436" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">3-5</text>
+  <text x="856" y="436" fill="#D1FAE5" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">menit</text>
+
+  <rect x="910" y="378" width="122" height="70" rx="14" fill="#F3F4F6"/>
+  <text x="940" y="407" fill="#6B7280" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.2">AKURASI</text>
+  <text x="940" y="436" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Objektif</text>
+
+  <text x="96" y="522" fill="#6B7280" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500">test-siap-kerja.vercel.app</text>
+</svg>

@@ -14,6 +14,7 @@ const SustainedFocusTest = () => {
       description="Merespon stimulus tertentu dalam rangkaian cepat untuk mengukur fokus dan konsentrasi."
       durationSeconds={180}
       segmentDurationSeconds={30}
+      initialPhase="trial-intro"
     >
       {({ onResponse, isRunning }) => <FocusEngine onResponse={onResponse} isRunning={isRunning} />}
 

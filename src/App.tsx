@@ -5,18 +5,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import TestSelection from "./pages/TestSelection";
+import TestIntro from "./pages/TestIntro";
+import TestRunner from "./pages/TestRunner";
 import Results from "./pages/Results";
 import Dashboard from "./pages/Dashboard";
-import PatternTest from "./pages/tests/PatternTest";
-import WorkingMemoryTest from "./pages/tests/WorkingMemoryTest";
-import ProcessingSpeedTest from "./pages/tests/ProcessingSpeedTest";
-import KraepelinTest from "./pages/tests/KraepelinTest";
-import VisualAccuracyTest from "./pages/tests/VisualAccuracyTest";
-import SustainedFocusTest from "./pages/tests/SustainedFocusTest";
-import QuickMathTest from "./pages/tests/QuickMathTest";
-import NumberAccuracyTest from "./pages/tests/NumberAccuracyTest";
-import EnduranceTest from "./pages/tests/EnduranceTest";
-import VerbalReasoningTest from "./pages/tests/VerbalReasoningTest";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,16 +22,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tes" element={<TestSelection />} />
-          <Route path="/tes/pengenalan-pola" element={<PatternTest />} />
-          <Route path="/tes/daya-ingat" element={<WorkingMemoryTest />} />
-          <Route path="/tes/kecepatan-pemrosesan" element={<ProcessingSpeedTest />} />
-          <Route path="/tes/kraepelin" element={<KraepelinTest />} />
-          <Route path="/tes/ketelitian-visual" element={<VisualAccuracyTest />} />
-          <Route path="/tes/fokus-berkelanjutan" element={<SustainedFocusTest />} />
-          <Route path="/tes/hitung-cepat" element={<QuickMathTest />} />
-          <Route path="/tes/ketelitian-angka" element={<NumberAccuracyTest />} />
-          <Route path="/tes/ketahanan-tugas" element={<EnduranceTest />} />
-          <Route path="/tes/penalaran-verbal" element={<VerbalReasoningTest />} />
+          <Route path="/tes/:testId" element={<TestIntro />} />
+          <Route path="/tes/:testId/mulai" element={<TestRunner />} />
           <Route path="/hasil/:id" element={<Results />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" element={<NotFound />} />

@@ -31,6 +31,7 @@ const PatternTest = () => {
       description="Mengidentifikasi dan melanjutkan pola visual untuk mengukur kemampuan analisis."
       durationSeconds={180}
       segmentDurationSeconds={30}
+      initialPhase="trial-intro"
     >
       {({ onResponse, isRunning }) => <PatternEngine onResponse={onResponse} isRunning={isRunning} />}
 

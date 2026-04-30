@@ -40,6 +40,7 @@ const ProcessingSpeedTest = () => {
       description="Menyelesaikan perhitungan dasar secepat mungkin di bawah tekanan waktu."
       durationSeconds={150}
       segmentDurationSeconds={30}
+      initialPhase="trial-intro"
     >
       {({ onResponse, isRunning }) => <MathEngine onResponse={onResponse} isRunning={isRunning} />}
 

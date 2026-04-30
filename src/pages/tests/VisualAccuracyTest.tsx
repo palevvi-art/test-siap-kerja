@@ -30,6 +30,7 @@ const VisualAccuracyTest = () => {
       description="Temukan dan klik semua simbol target yang muncul di antara distraktor."
       durationSeconds={180}
       segmentDurationSeconds={30}
+      initialPhase="trial-intro"
     >
       {({ onResponse, isRunning }) => <VisualEngine onResponse={onResponse} isRunning={isRunning} />}
 

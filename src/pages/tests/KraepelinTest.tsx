@@ -13,6 +13,7 @@ const KraepelinTest = () => {
       description="Menjumlahkan angka secara vertikal untuk mengukur ketelitian dan konsistensi kerja."
       durationSeconds={180}
       segmentDurationSeconds={30}
+      initialPhase="trial-intro"
     >
       {({ onResponse, isRunning }) => <KraepelinEngine onResponse={onResponse} isRunning={isRunning} />}
 

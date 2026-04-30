@@ -27,6 +27,7 @@ const NumberAccuracyTest = () => (
     description="Bandingkan dua deret angka. Tentukan apakah keduanya sama atau berbeda."
     durationSeconds={180}
     segmentDurationSeconds={30}
+    initialPhase="trial-intro"
   >
       {({ onResponse, isRunning }) => <NumberAccuracyEngine onResponse={onResponse} isRunning={isRunning} />}
 

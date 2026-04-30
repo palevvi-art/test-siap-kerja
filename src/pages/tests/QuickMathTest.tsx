@@ -32,6 +32,7 @@ const QuickMathTest = () => (
     description="Penjumlahan dan pengurangan dengan batas waktu ketat per soal. Mengukur kecepatan respon."
     durationSeconds={150}
     segmentDurationSeconds={30}
+    initialPhase="trial-intro"
   >
       {({ onResponse, isRunning }) => <QuickMathEngine onResponse={onResponse} isRunning={isRunning} />}
 

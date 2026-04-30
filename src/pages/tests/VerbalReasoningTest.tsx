@@ -183,6 +183,7 @@ const VerbalReasoningTest = () => (
     description="Mengukur pemahaman verbal dan logika komunikasi melalui sinonim, antonim, logika kalimat, dan pemahaman bacaan."
     durationSeconds={1500}
     segmentDurationSeconds={300}
+    initialPhase="trial-intro"
     maxQuestions={30}
   >
     {({ onResponse, isRunning }) => <VerbalEngine onResponse={onResponse} isRunning={isRunning} />}

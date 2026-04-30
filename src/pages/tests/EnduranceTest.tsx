@@ -15,6 +15,7 @@ const EnduranceTest = () => (
     description="Tugas hitung berulang dalam durasi panjang untuk mengukur konsistensi dan daya tahan kerja."
     durationSeconds={240}
     segmentDurationSeconds={30}
+    initialPhase="trial-intro"
   >
       {({ onResponse, isRunning }) => <EnduranceEngine onResponse={onResponse} isRunning={isRunning} />}
 
