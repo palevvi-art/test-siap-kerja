@@ -30,16 +30,16 @@ const HERO_ACTIVITY = [
 
 const WEEKLY_ACCURACY = [40, 54, 52, 68, 62, 78, 72];
 const WEEKLY_DAY_LABELS = ["Sn", "Sl", "Rb", "Km", "Jm", "Sb", "Mg"];
-const WEEKLY_CHART_PATH = "M 10 108 C 22 100, 34 90, 53 86 C 70 82, 82 86, 96 88 C 110 90, 122 64, 139 54 C 154 46, 168 62, 182 60 C 198 58, 212 34, 225 26 C 238 18, 248 22, 266 32";
-const WEEKLY_CHART_AREA_PATH = "M 10 108 C 22 100, 34 90, 53 86 C 70 82, 82 86, 96 88 C 110 90, 122 64, 139 54 C 154 46, 168 62, 182 60 C 198 58, 212 34, 225 26 C 238 18, 248 22, 266 32 L 266 132 L 10 132 Z";
+const WEEKLY_CHART_PATH = "M 8 72 C 24 66, 36 56, 52 46 C 68 36, 80 42, 96 44 C 112 46, 124 24, 140 18 C 156 12, 168 28, 184 30 C 200 32, 212 12, 228 10 C 244 8, 256 14, 268 18";
+const WEEKLY_CHART_AREA_PATH = "M 8 72 C 24 66, 36 56, 52 46 C 68 36, 80 42, 96 44 C 112 46, 124 24, 140 18 C 156 12, 168 28, 184 30 C 200 32, 212 12, 228 10 C 244 8, 256 14, 268 18 L 268 84 L 8 84 Z";
 const WEEKLY_CHART_POINTS = [
-  { cx: 10, cy: 108 },
-  { cx: 53, cy: 86 },
-  { cx: 96, cy: 88 },
-  { cx: 139, cy: 54 },
-  { cx: 182, cy: 60 },
-  { cx: 225, cy: 26 },
-  { cx: 266, cy: 32 },
+  { cx: 8, cy: 72 },
+  { cx: 52, cy: 46 },
+  { cx: 96, cy: 44 },
+  { cx: 140, cy: 18 },
+  { cx: 184, cy: 30 },
+  { cx: 228, cy: 10 },
+  { cx: 268, cy: 18 },
 ];
 
 const TRUST_LABELS = ["BUMN", "CPNS", "Bank", "Admin", "Operator", "QC", "Back Office", "FMCG"];
@@ -357,10 +357,10 @@ export default function Index() {
                     </div>
                     <div className="relative mt-4 h-[10.5rem] overflow-hidden rounded-[20px] border border-slate-200 bg-[#fbfcf8] px-3.5 pb-3 pt-4 sm:h-[11.75rem]">
                       <div className="pointer-events-none absolute inset-x-3 top-5 h-px bg-slate-200" />
-                      <div className="pointer-events-none absolute inset-x-3 top-1/2 h-px -translate-y-1/2 bg-slate-100" />
+                      <div className="pointer-events-none absolute inset-x-3 top-[3.65rem] h-px bg-slate-100" />
                       <motion.svg
-                        viewBox="0 0 276 132"
-                        className="pointer-events-none absolute inset-x-3 bottom-10 h-[112px] w-[calc(100%-24px)] overflow-visible"
+                        viewBox="0 0 276 84"
+                        className="pointer-events-none absolute inset-x-3 top-4 h-[78px] w-[calc(100%-24px)] overflow-visible"
                         aria-hidden="true"
                       >
                         <defs>
@@ -411,7 +411,7 @@ export default function Index() {
                           />
                         ))}
                       </motion.svg>
-                      <div className="relative z-10 flex h-full items-end gap-2.5">
+                      <div className="absolute inset-x-3 bottom-3 z-10 flex h-[52px] items-end gap-2.5">
                       {WEEKLY_ACCURACY.map((height, index) => (
                         <div key={height} className="flex flex-1 flex-col items-center gap-2">
                           <motion.div
