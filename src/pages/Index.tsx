@@ -29,24 +29,24 @@ const HERO_ACTIVITY = [
 ];
 
 const WEEKLY_SERIES = [
-  { label: "Sn", x: 20, y: 62 },
-  { label: "Sl", x: 66, y: 48 },
-  { label: "Rb", x: 112, y: 46 },
-  { label: "Km", x: 158, y: 20 },
-  { label: "Jm", x: 204, y: 32 },
-  { label: "Sb", x: 250, y: 14 },
-  { label: "Mg", x: 296, y: 20 },
+  { label: "Sn", x: 50, y: 156 },
+  { label: "Sl", x: 150, y: 114 },
+  { label: "Rb", x: 250, y: 120 },
+  { label: "Km", x: 350, y: 62 },
+  { label: "Jm", x: 450, y: 86 },
+  { label: "Sb", x: 550, y: 34 },
+  { label: "Mg", x: 650, y: 52 },
 ];
-const WEEKLY_CHART_PATH = "M 20 62 C 32 58, 48 50, 66 48 C 82 46, 96 48, 112 46 C 128 44, 142 26, 158 20 C 174 14, 188 30, 204 32 C 220 34, 234 16, 250 14 C 266 12, 282 18, 296 20";
-const WEEKLY_CHART_AREA_PATH = "M 20 62 C 32 58, 48 50, 66 48 C 82 46, 96 48, 112 46 C 128 44, 142 26, 158 20 C 174 14, 188 30, 204 32 C 220 34, 234 16, 250 14 C 266 12, 282 18, 296 20 L 296 84 L 20 84 Z";
+const WEEKLY_CHART_PATH = "M 50 156 C 82 142, 116 118, 150 114 C 182 110, 216 124, 250 120 C 282 116, 316 70, 350 62 C 382 54, 416 92, 450 86 C 482 80, 516 40, 550 34 C 582 28, 616 42, 650 52";
+const WEEKLY_CHART_AREA_PATH = "M 50 156 C 82 142, 116 118, 150 114 C 182 110, 216 124, 250 120 C 282 116, 316 70, 350 62 C 382 54, 416 92, 450 86 C 482 80, 516 40, 550 34 C 582 28, 616 42, 650 52 L 650 190 L 50 190 Z";
 const WEEKLY_CHART_POINTS = [
-  { cx: 20, cy: 62 },
-  { cx: 66, cy: 48 },
-  { cx: 112, cy: 46 },
-  { cx: 158, cy: 20 },
-  { cx: 204, cy: 32 },
-  { cx: 250, cy: 14 },
-  { cx: 296, cy: 20 },
+  { cx: 50, cy: 156 },
+  { cx: 150, cy: 114 },
+  { cx: 250, cy: 120 },
+  { cx: 350, cy: 62 },
+  { cx: 450, cy: 86 },
+  { cx: 550, cy: 34 },
+  { cx: 650, cy: 52 },
 ];
 
 const TRUST_LABELS = ["BUMN", "CPNS", "Bank", "Admin", "Operator", "QC", "Back Office", "FMCG"];
@@ -362,19 +362,20 @@ export default function Index() {
                         Stabil meningkat
                       </div>
                     </div>
-                    <div className="relative mt-4 h-[10.75rem] overflow-hidden rounded-[20px] border border-slate-200 bg-[#fbfcf8] px-4 pb-3 pt-4 sm:h-[12rem]">
-                      <div className="pointer-events-none absolute inset-x-4 top-5 h-px bg-slate-200" />
-                      <div className="pointer-events-none absolute inset-x-4 top-[3.55rem] h-px bg-slate-100" />
-                      {WEEKLY_SERIES.map((item) => (
-                        <div
-                          key={`guide-${item.label}`}
-                          className="pointer-events-none absolute top-4 h-[78px] w-px bg-[linear-gradient(180deg,rgba(148,163,184,0.18),rgba(148,163,184,0))]"
-                          style={{ left: `calc(1rem + ${(item.x / 312) * 100}%)` }}
-                        />
-                      ))}
+                    <div className="relative mt-4 rounded-[20px] border border-slate-200 bg-[#fbfcf8] px-4 pb-4 pt-4">
+                      <div className="relative h-[152px] rounded-[16px] border border-slate-100 bg-white/55 px-4 pt-4 sm:h-[172px]">
+                        <div className="pointer-events-none absolute inset-x-4 top-6 h-px bg-slate-200" />
+                        <div className="pointer-events-none absolute inset-x-4 top-1/2 h-px -translate-y-1/2 bg-slate-100" />
+                        {WEEKLY_SERIES.map((item) => (
+                          <div
+                            key={`guide-${item.label}`}
+                            className="pointer-events-none absolute inset-y-4 w-px bg-[linear-gradient(180deg,rgba(148,163,184,0.16),rgba(148,163,184,0))]"
+                            style={{ left: `${(item.x / 700) * 100}%` }}
+                          />
+                        ))}
                       <motion.svg
-                        viewBox="0 0 312 84"
-                        className="pointer-events-none absolute inset-x-4 top-4 h-[78px] w-[calc(100%-32px)] overflow-visible"
+                        viewBox="0 0 700 220"
+                        className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
                         aria-hidden="true"
                       >
                         <defs>
@@ -425,13 +426,10 @@ export default function Index() {
                           />
                         ))}
                       </motion.svg>
-                      <div className="absolute inset-x-4 bottom-3 z-10 h-[24px]">
+                      </div>
+                      <div className="relative z-10 mt-4 grid grid-cols-7">
                       {WEEKLY_SERIES.map((item, index) => (
-                        <div
-                          key={item.label}
-                          className="absolute top-0 -translate-x-1/2"
-                          style={{ left: `${(item.x / 312) * 100}%` }}
-                        >
+                        <div key={item.label} className="flex justify-center">
                           <motion.span
                             initial={shouldReduceMotion ? false : { opacity: 0, y: 4 }}
                             animate={!hasViewportObserver || shouldReduceMotion ? { opacity: 1, y: 0 } : undefined}
