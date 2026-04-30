@@ -18,7 +18,7 @@ describe("Index landing page render", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Satu tempat untuk melatih ritme tes kerja/i,
+        name: /Latihan tes kerja yang rapi, cepat, dan mudah diulang/i,
       }),
     ).toBeInTheDocument();
 

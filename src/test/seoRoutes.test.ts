@@ -51,6 +51,6 @@ describe("SEO route scaffolding", () => {
     expect(source).toContain("Cara pakai untuk persiapan tes kerja");
     expect(source).toContain("Katalog modul");
     expect(source).toContain("Bukti yang terlihat di produk");
-    expect(source).toContain("Satu tempat untuk melatih ritme tes kerja dengan tampilan yang lebih tenang dan lebih jelas.");
+    expect(source).toContain("Latihan tes kerja yang rapi, cepat, dan mudah diulang.");
   });
 });

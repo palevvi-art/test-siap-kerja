@@ -181,23 +181,23 @@ export default function Index() {
       </header>
 
       <section className="overflow-hidden border-b border-black/10">
-        <div className="container mx-auto grid max-w-6xl gap-10 px-5 py-12 md:grid-cols-[0.92fr_1.08fr] md:items-center md:px-6 md:py-16 lg:py-20">
-          <div>
+        <div className="container mx-auto max-w-6xl px-5 py-12 md:px-6 md:py-16 lg:py-20">
+          <div className="mx-auto max-w-4xl text-center">
             <div className="landing-hero-copy landing-stagger-1 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-slate-600">
               <Sparkles className="h-3.5 w-3.5 text-emerald-700" />
               Latihan Kognitif untuk Seleksi Kerja
             </div>
 
-            <h1 className="landing-hero-copy landing-stagger-2 mt-6 max-w-xl text-[2.7rem] font-semibold leading-[0.98] tracking-tight text-slate-950 sm:text-[3.25rem] md:text-[3.7rem] lg:text-[4.4rem]">
-              Satu tempat untuk melatih ritme tes kerja dengan tampilan yang lebih tenang dan lebih jelas.
+            <h1 className="landing-hero-copy landing-stagger-2 mx-auto mt-6 max-w-3xl text-[2.7rem] font-semibold leading-[0.96] tracking-tight text-slate-950 sm:text-[3.2rem] md:text-[3.9rem] lg:text-[4.6rem]">
+              Latihan tes kerja yang rapi, cepat, dan mudah diulang.
             </h1>
 
-            <p className="landing-hero-copy landing-stagger-3 mt-5 max-w-lg text-[15px] leading-7 text-slate-600 sm:text-base md:text-[17px] md:leading-8">
+            <p className="landing-hero-copy landing-stagger-3 mx-auto mt-5 max-w-2xl text-[15px] leading-7 text-slate-600 sm:text-base md:text-[17px] md:leading-8">
               {ALL_TESTS.length} modul gratis untuk numerik, memori, fokus, verbal, dan ketelitian.
               Langsung mulai dari browser tanpa akun dan tanpa alur yang membuang waktu.
             </p>
 
-            <div className="landing-hero-copy landing-stagger-4 mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="landing-hero-copy landing-stagger-4 mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
               <Link
                 to="/tes"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-85"
@@ -213,7 +213,7 @@ export default function Index() {
               </Link>
             </div>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            <div className="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-3">
               {HERO_METRICS.map((metric, index) => (
                 <div
                   key={metric.label}
@@ -230,7 +230,7 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="relative md:pl-2 lg:pl-6">
+          <div className="relative mx-auto mt-12 max-w-5xl">
             <div className="landing-hero-panel relative z-10 rounded-[28px] border border-black bg-[#111111] p-3 text-white shadow-[0_24px_80px_rgba(15,23,42,0.18)] sm:p-4">
               <div className="rounded-[22px] border border-white/10 bg-[#161616] p-3 sm:p-4">
                 <div className="mb-4 flex items-center justify-between rounded-[18px] border border-white/8 bg-white/[0.03] px-3 py-2">
@@ -328,7 +328,7 @@ export default function Index() {
               </div>
             </div>
 
-            <div className="landing-float-delay absolute -left-3 top-6 z-20 hidden rounded-[22px] border border-black/10 bg-white px-3 py-2 text-slate-950 shadow-[0_18px_40px_rgba(15,23,42,0.08)] lg:block">
+            <div className="landing-float-delay absolute -left-3 top-6 z-20 hidden rounded-[22px] border border-black/10 bg-white px-3 py-2 text-slate-950 shadow-[0_18px_40px_rgba(15,23,42,0.08)] xl:block">
               <div className="flex items-center gap-2 text-sm font-medium">
                 <ShieldCheck className="h-4 w-4 text-emerald-700" />
                 Tanpa registrasi
@@ -336,7 +336,7 @@ export default function Index() {
               <p className="mt-1 text-xs text-slate-500">Langsung mulai dari browser</p>
             </div>
 
-            <div className="landing-float-slow absolute -bottom-3 right-4 z-20 hidden rounded-[22px] border border-black/10 bg-white px-3 py-2 text-slate-950 shadow-[0_18px_40px_rgba(15,23,42,0.08)] lg:block">
+            <div className="landing-float-slow absolute -bottom-3 right-4 z-20 hidden rounded-[22px] border border-black/10 bg-white px-3 py-2 text-slate-950 shadow-[0_18px_40px_rgba(15,23,42,0.08)] xl:block">
               <div className="flex items-center gap-2 text-sm font-medium">
                 <Sparkles className="h-4 w-4 text-emerald-700" />
                 Hasil transparan
