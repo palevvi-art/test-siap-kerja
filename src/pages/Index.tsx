@@ -365,6 +365,13 @@ export default function Index() {
                     <div className="relative mt-4 h-[10.75rem] overflow-hidden rounded-[20px] border border-slate-200 bg-[#fbfcf8] px-4 pb-3 pt-4 sm:h-[12rem]">
                       <div className="pointer-events-none absolute inset-x-4 top-5 h-px bg-slate-200" />
                       <div className="pointer-events-none absolute inset-x-4 top-[3.55rem] h-px bg-slate-100" />
+                      {WEEKLY_SERIES.map((item) => (
+                        <div
+                          key={`guide-${item.label}`}
+                          className="pointer-events-none absolute top-4 h-[78px] w-px bg-[linear-gradient(180deg,rgba(148,163,184,0.18),rgba(148,163,184,0))]"
+                          style={{ left: `calc(1rem + ${(item.x / 312) * 100}%)` }}
+                        />
+                      ))}
                       <motion.svg
                         viewBox="0 0 312 84"
                         className="pointer-events-none absolute inset-x-4 top-4 h-[78px] w-[calc(100%-32px)] overflow-visible"
@@ -418,9 +425,13 @@ export default function Index() {
                           />
                         ))}
                       </motion.svg>
-                      <div className="absolute inset-x-4 bottom-3 z-10 grid h-[24px] grid-cols-7 items-end">
+                      <div className="absolute inset-x-4 bottom-3 z-10 h-[24px]">
                       {WEEKLY_SERIES.map((item, index) => (
-                        <div key={item.label} className="flex flex-col items-center gap-2">
+                        <div
+                          key={item.label}
+                          className="absolute top-0 -translate-x-1/2"
+                          style={{ left: `${(item.x / 312) * 100}%` }}
+                        >
                           <motion.span
                             initial={shouldReduceMotion ? false : { opacity: 0, y: 4 }}
                             animate={!hasViewportObserver || shouldReduceMotion ? { opacity: 1, y: 0 } : undefined}
