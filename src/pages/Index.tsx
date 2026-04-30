@@ -30,15 +30,16 @@ const HERO_ACTIVITY = [
 
 const WEEKLY_ACCURACY = [44, 60, 58, 80, 74, 92, 86];
 const WEEKLY_DAY_LABELS = ["Sn", "Sl", "Rb", "Km", "Jm", "Sb", "Mg"];
-const WEEKLY_CHART_PATH = "M 16 124 C 48 110, 66 88, 82 90 C 98 92, 116 58, 132 48 C 148 38, 168 20, 190 28 C 212 36, 232 12, 260 16";
+const WEEKLY_CHART_PATH = "M 16 122 C 34 112, 44 100, 52 96 C 60 92, 76 90, 88 88 C 100 86, 112 60, 124 54 C 136 48, 148 62, 160 60 C 172 58, 194 20, 214 18 C 234 16, 246 24, 260 26";
+const WEEKLY_CHART_AREA_PATH = "M 16 122 C 34 112, 44 100, 52 96 C 60 92, 76 90, 88 88 C 100 86, 112 60, 124 54 C 136 48, 148 62, 160 60 C 172 58, 194 20, 214 18 C 234 16, 246 24, 260 26 L 260 132 L 16 132 Z";
 const WEEKLY_CHART_POINTS = [
-  { cx: 16, cy: 124 },
-  { cx: 52, cy: 98 },
-  { cx: 88, cy: 92 },
-  { cx: 124, cy: 52 },
-  { cx: 160, cy: 64 },
+  { cx: 16, cy: 122 },
+  { cx: 52, cy: 96 },
+  { cx: 88, cy: 88 },
+  { cx: 124, cy: 54 },
+  { cx: 160, cy: 60 },
   { cx: 214, cy: 18 },
-  { cx: 260, cy: 28 },
+  { cx: 260, cy: 26 },
 ];
 
 const TRUST_LABELS = ["BUMN", "CPNS", "Bank", "Admin", "Operator", "QC", "Back Office", "FMCG"];
@@ -204,9 +205,9 @@ export default function Index() {
               Latihan Kognitif untuk Seleksi Kerja
             </div>
 
-            <h1 className="landing-hero-copy landing-stagger-2 mx-auto mt-6 max-w-[15.5ch] text-balance text-[2.55rem] font-semibold leading-[1.03] tracking-[-0.05em] text-slate-950 sm:max-w-[16.5ch] sm:text-[3.1rem] md:text-[3.8rem] lg:max-w-[17.5ch] lg:text-[4.2rem]">
-              <span className="block">Latihan tes kerja yang rapi, cepat,</span>
-              <span className="mt-1.5 block">dan mudah diulang.</span>
+            <h1 className="landing-hero-copy landing-stagger-2 mx-auto mt-6 max-w-[16.5ch] text-balance text-[2.55rem] font-semibold leading-[1.03] tracking-[-0.05em] text-slate-950 sm:max-w-[17.2ch] sm:text-[3.1rem] md:text-[3.8rem] lg:max-w-[18.2ch] lg:text-[4.2rem]">
+              <span className="block">Latihan tes kerja yang rapi,</span>
+              <span className="mt-1.5 block">cepat, dan mudah diulang.</span>
             </h1>
 
             <p className="landing-hero-copy landing-stagger-3 mx-auto mt-5 max-w-2xl text-[15px] leading-7 text-slate-600 sm:text-base md:text-[17px] md:leading-8">
@@ -325,9 +326,9 @@ export default function Index() {
                           <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-emerald-100">
                             <motion.div
                               className="h-full rounded-full bg-[linear-gradient(90deg,#10b981,#6ee7b7)]"
-                              initial={shouldReduceMotion ? false : { scaleX: 0.14, opacity: 0.45 }}
+                              initial={shouldReduceMotion ? false : { scaleX: 0.02, opacity: 0.45 }}
                               animate={shouldReduceMotion ? { scaleX: 1, opacity: 1 } : { scaleX: 1, opacity: 1 }}
-                              transition={{ delay: index * 0.12 + 0.24, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                              transition={{ delay: index * 0.12 + 0.24, duration: 1.05, ease: [0.22, 1, 0.36, 1] }}
                               style={{ width: `${item.progress}%`, originX: 0 }}
                             />
                           </div>
@@ -361,7 +362,18 @@ export default function Index() {
                             <stop offset="55%" stopColor="#10b981" />
                             <stop offset="100%" stopColor="#34d399" />
                           </linearGradient>
+                          <linearGradient id="weekly-area" x1="0%" x2="0%" y1="0%" y2="100%">
+                            <stop offset="0%" stopColor="rgba(16,185,129,0.18)" />
+                            <stop offset="100%" stopColor="rgba(16,185,129,0.02)" />
+                          </linearGradient>
                         </defs>
+                        <motion.path
+                          d={WEEKLY_CHART_AREA_PATH}
+                          fill="url(#weekly-area)"
+                          initial={shouldReduceMotion ? false : { opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.8, delay: 0.46, ease: [0.22, 1, 0.36, 1] }}
+                        />
                         <motion.path
                           d={WEEKLY_CHART_PATH}
                           fill="none"
