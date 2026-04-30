@@ -108,7 +108,7 @@ export default function StandaloneKoranDigital() {
         </Link>
 
         {phase === "intro" && (
-          <div className="rounded-2xl border border-border bg-card p-8 text-center">
+          <div className="rounded-[28px] border border-border bg-card p-8 text-center shadow-[0_18px_50px_rgba(15,23,42,0.04)]">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">Tes Tambahan</p>
             <h1 className="mt-3 text-3xl font-bold tracking-tight text-foreground">Tes Koran Digital</h1>
             <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-muted-foreground">
@@ -121,7 +121,7 @@ export default function StandaloneKoranDigital() {
                 { label: "Format", value: "Penjumlahan vertikal" },
                 { label: "Fokus", value: "Konsistensi hitung" },
               ].map((item) => (
-                <div key={item.label} className="rounded-xl border border-border bg-background px-4 py-4">
+                <div key={item.label} className="rounded-2xl border border-border bg-background px-4 py-4">
                   <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{item.label}</p>
                   <p className="mt-2 text-sm font-semibold text-foreground">{item.value}</p>
                 </div>
@@ -138,13 +138,13 @@ export default function StandaloneKoranDigital() {
         )}
 
         {phase === "running" && (
-          <div className="rounded-2xl border border-border bg-card p-6">
+          <div className="rounded-[28px] border border-border bg-card p-6 shadow-[0_18px_50px_rgba(15,23,42,0.04)]">
             <div className="mb-6 flex items-center justify-between gap-4">
               <div>
                 <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Sesi Aktif</p>
                 <h1 className="mt-1 text-xl font-semibold text-foreground">Tes Koran Digital</h1>
               </div>
-              <div className="rounded-lg border border-border bg-background px-4 py-2 text-right">
+              <div className="rounded-xl border border-border bg-background px-4 py-3 text-right">
                 <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Waktu</p>
                 <p className="text-lg font-mono font-semibold text-foreground">
                   {Math.floor(timeLeft / 60)}:{`${timeLeft % 60}`.padStart(2, "0")}
@@ -158,17 +158,17 @@ export default function StandaloneKoranDigital() {
                 { label: "Salah", value: incorrect },
                 { label: "Akurasi", value: `${accuracy}%` },
               ].map((item) => (
-                <div key={item.label} className="rounded-xl border border-border bg-background px-4 py-4">
+                <div key={item.label} className="rounded-2xl border border-border bg-background px-4 py-4">
                   <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{item.label}</p>
                   <p className="mt-2 text-xl font-semibold text-foreground">{item.value}</p>
                 </div>
               ))}
             </div>
 
-            <div className="mb-6 rounded-2xl border border-border bg-background p-6">
+            <div className="mb-6 rounded-[24px] border border-border bg-background p-6">
               <p className="mb-4 text-sm text-muted-foreground">Jumlahkan dua angka aktif, lalu masukkan digit satuannya.</p>
               <div className="flex justify-center">
-                <div className="min-w-[96px] rounded-xl border border-border bg-card px-6 py-5">
+                <div className="min-w-[96px] rounded-2xl border border-border bg-card px-6 py-5 shadow-[0_10px_24px_rgba(15,23,42,0.03)]">
                   {column.slice(visibleStart, visibleEnd).map((num, index) => {
                     const actualIndex = visibleStart + index;
                     const active = actualIndex === currentPair || actualIndex === currentPair + 1;
@@ -199,7 +199,7 @@ export default function StandaloneKoranDigital() {
                 <button
                   key={digit}
                   onClick={() => handleAnswer(digit)}
-                  className="rounded-xl border border-border bg-background py-3 text-lg font-mono text-foreground transition-colors hover:border-primary hover:bg-accent"
+                  className="rounded-2xl border border-border bg-background py-3 text-lg font-mono text-foreground transition-colors hover:border-primary hover:bg-accent"
                 >
                   {digit}
                 </button>
@@ -209,7 +209,7 @@ export default function StandaloneKoranDigital() {
         )}
 
         {phase === "done" && (
-          <div className="rounded-2xl border border-border bg-card p-8">
+          <div className="rounded-[28px] border border-border bg-card p-8 shadow-[0_18px_50px_rgba(15,23,42,0.04)]">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">Selesai</p>
             <h1 className="mt-3 text-3xl font-bold tracking-tight text-foreground">Ringkasan Tes Koran</h1>
             <div className="mt-8 grid gap-3 sm:grid-cols-4">
@@ -219,7 +219,7 @@ export default function StandaloneKoranDigital() {
                 { label: "Akurasi", value: `${accuracy}%` },
                 { label: "Rata-rata", value: averageResponse ? `${averageResponse} ms` : "—" },
               ].map((item) => (
-                <div key={item.label} className="rounded-xl border border-border bg-background px-4 py-4">
+                <div key={item.label} className="rounded-2xl border border-border bg-background px-4 py-4">
                   <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{item.label}</p>
                   <p className="mt-2 text-xl font-semibold text-foreground">{item.value}</p>
                 </div>

@@ -14,10 +14,10 @@ const EXTRA_TOOLS = [
     badge: "Tambahan",
   },
   {
-    title: "Tes MBTI Ringkas",
+    title: "Tes MBTI Mendalam",
     description:
-      "Eksplorasi preferensi kerja, komunikasi, dan pengambilan keputusan dalam format yang dipisahkan dari modul kognitif utama.",
-    duration: "16 pertanyaan",
+      "Eksplorasi preferensi kerja, gaya komunikasi, cara mengambil keputusan, dan area pengembangan secara lebih menyeluruh.",
+    duration: "32 pertanyaan",
     href: "/eksplorasi/mbti",
     badge: "Kepribadian",
   },
