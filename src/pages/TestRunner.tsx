@@ -1,26 +1,23 @@
+import { Suspense, lazy } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import PatternTest from "./tests/PatternTest";
-import WorkingMemoryTest from "./tests/WorkingMemoryTest";
-import ProcessingSpeedTest from "./tests/ProcessingSpeedTest";
-import KraepelinTest from "./tests/KraepelinTest";
-import VisualAccuracyTest from "./tests/VisualAccuracyTest";
-import SustainedFocusTest from "./tests/SustainedFocusTest";
-import QuickMathTest from "./tests/QuickMathTest";
-import NumberAccuracyTest from "./tests/NumberAccuracyTest";
-import EnduranceTest from "./tests/EnduranceTest";
-import VerbalReasoningTest from "./tests/VerbalReasoningTest";
 
 const TEST_COMPONENTS = {
-  "pengenalan-pola": PatternTest,
-  "daya-ingat": WorkingMemoryTest,
-  "kecepatan-pemrosesan": ProcessingSpeedTest,
-  kraepelin: KraepelinTest,
-  "ketelitian-visual": VisualAccuracyTest,
-  "fokus-berkelanjutan": SustainedFocusTest,
-  "hitung-cepat": QuickMathTest,
-  "ketelitian-angka": NumberAccuracyTest,
-  "ketahanan-tugas": EnduranceTest,
-  "penalaran-verbal": VerbalReasoningTest,
+  "pengenalan-pola": lazy(() => import("./tests/PatternTest")),
+  "deret-angka": lazy(() => import("./tests/SequenceReasoningTest")),
+  "daya-ingat": lazy(() => import("./tests/WorkingMemoryTest")),
+  "memori-visual": lazy(() => import("./tests/VisualMemorySequenceTest")),
+  "kecepatan-pemrosesan": lazy(() => import("./tests/ProcessingSpeedTest")),
+  "aritmetika-campuran": lazy(() => import("./tests/ArithmeticSprintTest")),
+  kraepelin: lazy(() => import("./tests/KraepelinTest")),
+  "ketelitian-visual": lazy(() => import("./tests/VisualAccuracyTest")),
+  "pemeriksaan-kode": lazy(() => import("./tests/CodeComparisonTest")),
+  "fokus-berkelanjutan": lazy(() => import("./tests/SustainedFocusTest")),
+  "stroop-warna": lazy(() => import("./tests/StroopFocusTest")),
+  "hitung-cepat": lazy(() => import("./tests/QuickMathTest")),
+  "ketelitian-angka": lazy(() => import("./tests/NumberAccuracyTest")),
+  "ketahanan-tugas": lazy(() => import("./tests/EnduranceTest")),
+  "penalaran-verbal": lazy(() => import("./tests/VerbalReasoningTest")),
+  "analogi-kata": lazy(() => import("./tests/WordAnalogyTest")),
 } as const;
 
 export default function TestRunner() {
@@ -31,5 +28,20 @@ export default function TestRunner() {
   }
 
   const Component = TEST_COMPONENTS[testId];
-  return <Component />;
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center bg-background px-6">
+          <div className="w-full max-w-sm rounded-lg border border-border bg-card px-5 py-4 text-center">
+            <p className="text-sm font-semibold text-foreground">Memuat modul tes</p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Menyiapkan sesi latihan dan komponen yang Anda butuhkan.
+            </p>
+          </div>
+        </div>
+      }
+    >
+      <Component />
+    </Suspense>
+  );
 }

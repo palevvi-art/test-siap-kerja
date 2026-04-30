@@ -10,7 +10,7 @@ describe("SEO route scaffolding", () => {
   it("test registry defines FAQ and start paths for all modules", async () => {
     const { ALL_TESTS } = await import("../lib/testRegistry");
 
-    expect(ALL_TESTS).toHaveLength(10);
+    expect(ALL_TESTS).toHaveLength(16);
 
     for (const test of ALL_TESTS) {
       expect(test.startPath).toBe(`${test.path}/mulai`);
@@ -22,9 +22,14 @@ describe("SEO route scaffolding", () => {
 
   it("app routes support intro pages and /mulai test runners", () => {
     const appSource = readProjectFile("src/App.tsx");
+    const runnerSource = readProjectFile("src/pages/TestRunner.tsx");
 
+    expect(appSource).toContain("lazy(() => import(");
+    expect(appSource).toContain("<Suspense fallback={<RouteFallback />}>");
     expect(appSource).toContain('path="/tes/:testId"');
     expect(appSource).toContain('path="/tes/:testId/mulai"');
+    expect(runnerSource).toContain('lazy(() => import("./tests/SequenceReasoningTest"))');
+    expect(runnerSource).toContain('lazy(() => import("./tests/WordAnalogyTest"))');
   });
 
   it("index meta references a shareable og image", () => {
@@ -33,5 +38,17 @@ describe("SEO route scaffolding", () => {
     expect(html).toContain('property="og:image"');
     expect(html).toContain('name="twitter:image"');
     expect(html).toContain('/og-image.png');
+  });
+
+  it("homepage injects page meta and structured data for crawlable discovery", () => {
+    const source = readProjectFile("src/pages/Index.tsx");
+
+    expect(source).toContain("<PageMeta");
+    expect(source).toContain('"@type": "WebSite"');
+    expect(source).toContain('"@type": "ItemList"');
+    expect(source).toContain("Keyword intent utama");
+    expect(source).toContain("Dashboard latihan");
+    expect(source).toContain("Relevan untuk pola seleksi yang sering dicari");
+    expect(source).toContain("Bukti yang terlihat di produk");
   });
 });

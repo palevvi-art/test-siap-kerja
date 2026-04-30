@@ -26,7 +26,17 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://test-siap-kerja.vercel.app/tes/memori-visual</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://test-siap-kerja.vercel.app/tes/kecepatan-pemrosesan</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://test-siap-kerja.vercel.app/tes/aritmetika-campuran</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -41,7 +51,17 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://test-siap-kerja.vercel.app/tes/pemeriksaan-kode</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://test-siap-kerja.vercel.app/tes/fokus-berkelanjutan</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://test-siap-kerja.vercel.app/tes/stroop-warna</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -62,6 +82,16 @@
   </url>
   <url>
     <loc>https://test-siap-kerja.vercel.app/tes/penalaran-verbal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://test-siap-kerja.vercel.app/tes/analogi-kata</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://test-siap-kerja.vercel.app/tes/deret-angka</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

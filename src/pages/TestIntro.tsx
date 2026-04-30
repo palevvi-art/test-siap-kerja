@@ -3,9 +3,55 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Layout from "@/components/Layout";
 import PageMeta from "@/components/PageMeta";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { TEST_BY_ID } from "@/lib/testRegistry";
+import { ALL_TESTS, TEST_BY_ID } from "@/lib/testRegistry";
 
 const SITE_NAME = "KognitiF";
+
+const CATEGORY_COPY: Record<
+  string,
+  {
+    label: string;
+    heading: string;
+    body: string;
+  }
+> = {
+  logika: {
+    label: "Cluster Penalaran",
+    heading: "Sering dipakai untuk screening kandidat yang harus cepat membaca pola dan aturan.",
+    body:
+      "Latihan di cluster ini relevan untuk tes logika kerja, reasoning, dan soal abstrak yang sering muncul di BUMN, CPNS, bank, dan perusahaan swasta.",
+  },
+  memori: {
+    label: "Cluster Memori Kerja",
+    heading: "Berguna untuk latihan tugas yang menuntut recall cepat dan akurat.",
+    body:
+      "Jenis soal ini umum dipakai saat perusahaan ingin melihat kapasitas menyimpan informasi singkat, fokus, dan kestabilan performa saat detail harus diingat.",
+  },
+  hitung: {
+    label: "Cluster Numerik",
+    heading: "Cocok untuk latihan tes hitung kerja, Kraepelin, dan ritme numerik berbasis waktu.",
+    body:
+      "Biasanya muncul pada seleksi yang menilai akurasi hitung, kecepatan mental, dan daya tahan menghadapi tugas angka yang repetitif atau bertekanan waktu.",
+  },
+  ketelitian: {
+    label: "Cluster Ketelitian",
+    heading: "Paling relevan untuk posisi yang bergantung pada akurasi detail dan spotting error.",
+    body:
+      "Latihan ini membantu membangun kebiasaan mengecek detail kecil, membedakan angka atau simbol yang mirip, dan menjaga kualitas kerja administratif.",
+  },
+  fokus: {
+    label: "Cluster Fokus",
+    heading: "Dirancang untuk latihan konsentrasi berkelanjutan dan ritme kerja yang stabil.",
+    body:
+      "Sering dipakai untuk melihat apakah peserta bisa menjaga performa dari awal sampai akhir tanpa banyak kesalahan impulsif saat tugas terasa monoton.",
+  },
+  verbal: {
+    label: "Cluster Verbal",
+    heading: "Membantu latihan memahami instruksi, relasi kata, dan logika bahasa tertulis.",
+    body:
+      "Soal verbal umum dipakai pada seleksi yang menuntut pemahaman bacaan cepat, kejernihan berpikir, dan kemampuan menangkap inti informasi secara tepat.",
+  },
+};
 
 export default function TestIntro() {
   const { testId } = useParams<{ testId: string }>();
@@ -15,6 +61,8 @@ export default function TestIntro() {
   }
 
   const test = TEST_BY_ID[testId];
+  const relatedTests = ALL_TESTS.filter((item) => item.id !== test.id && item.category === test.category).slice(0, 3);
+  const categoryCopy = CATEGORY_COPY[test.category];
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -99,9 +147,30 @@ export default function TestIntro() {
                 </p>
               ))}
             </div>
+
+            <div className="mt-8 rounded-lg border border-border bg-card p-5">
+              <p className="text-xs font-semibold uppercase tracking-widest text-primary">
+                {categoryCopy.label}
+              </p>
+              <h2 className="mt-3 text-lg font-semibold tracking-tight text-foreground">
+                {categoryCopy.heading}
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">{categoryCopy.body}</p>
+            </div>
           </section>
 
           <aside className="space-y-6">
+            <div className="rounded-lg border border-border bg-card p-5">
+              <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-foreground">
+                Format Tes
+              </h2>
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <p>Durasi latihan: {test.duration}</p>
+                <p>Soal dikerjakan langsung di browser tanpa registrasi.</p>
+                <p>Hasil sesi tersimpan lokal agar Anda bisa mengulang dan membandingkan performa.</p>
+              </div>
+            </div>
+
             <div className="rounded-lg border border-border bg-card p-5">
               <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-foreground">
                 Yang Diukur
@@ -146,6 +215,24 @@ export default function TestIntro() {
             ))}
           </Accordion>
         </section>
+
+        {relatedTests.length > 0 && (
+          <section className="mt-12 border-t border-border/60 pt-10">
+            <h2 className="mb-4 text-xl font-semibold text-foreground">Tes Terkait</h2>
+            <div className="grid gap-3 md:grid-cols-3">
+              {relatedTests.map((related) => (
+                <Link
+                  key={related.id}
+                  to={related.path}
+                  className="rounded-lg border border-border bg-card p-4 transition-colors hover:border-primary hover:bg-accent/40"
+                >
+                  <p className="text-sm font-semibold text-foreground">{related.name}</p>
+                  <p className="mt-1 text-xs leading-6 text-muted-foreground">{related.description}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </Layout>
   );

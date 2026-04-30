@@ -7,6 +7,15 @@ interface TestCardProps {
   test: TestMeta;
 }
 
+const CATEGORY_LABELS: Record<TestMeta["category"], string> = {
+  logika: "Logika",
+  memori: "Memori",
+  hitung: "Hitung",
+  ketelitian: "Ketelitian",
+  fokus: "Fokus",
+  verbal: "Verbal",
+};
+
 const TestCard = ({ test }: TestCardProps) => {
   const attempts = getResults().filter((r) => r.testType === test.id);
   const best = attempts.length > 0
@@ -24,7 +33,7 @@ const TestCard = ({ test }: TestCardProps) => {
     >
       <div className="flex items-start justify-between mb-3">
         <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-          {test.category}
+          {CATEGORY_LABELS[test.category]}
         </span>
         {best !== null ? (
           <span className="flex items-center gap-1 text-xs text-primary font-semibold">

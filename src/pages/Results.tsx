@@ -1,19 +1,13 @@
+import { Suspense, lazy, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import Layout from "@/components/Layout";
+import PageMeta from "@/components/PageMeta";
+import { useToast } from "@/hooks/use-toast";
 import { getResultById } from "@/lib/storage";
 import { TEST_NAME } from "@/lib/testRegistry";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-} from "recharts";
-import { ArrowLeft, LayoutDashboard, RotateCcw } from "lucide-react";
+import { ArrowLeft, Copy, LayoutDashboard, RotateCcw } from "lucide-react";
+
+const ResultsCharts = lazy(() => import("@/components/ResultsCharts"));
 
 function accuracyLabel(pct: number): { text: string; color: string } {
   if (pct >= 90) return { text: "Sangat Baik", color: "text-primary" };
@@ -25,6 +19,7 @@ function accuracyLabel(pct: number): { text: string; color: string } {
 const Results = () => {
   const { id } = useParams<{ id: string }>();
   const result = id ? getResultById(id) : undefined;
+  const { toast } = useToast();
 
   if (!result) {
     return (
@@ -60,9 +55,58 @@ const Results = () => {
     month: "long",
     year: "numeric",
   });
+  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
+  const schema = useMemo(
+    () => ({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "KognitiF",
+          item: "https://test-siap-kerja.vercel.app/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Pilih Tes",
+          item: "https://test-siap-kerja.vercel.app/tes",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: `Hasil ${testName}`,
+          item: `https://test-siap-kerja.vercel.app/hasil/${result.id}`,
+        },
+      ],
+    }),
+    [result.id, testName],
+  );
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      toast({
+        title: "Tautan hasil disalin",
+        description: "Bagikan link ini atau simpan untuk membuka hasil yang sama di perangkat ini.",
+      });
+    } catch (error) {
+      toast({
+        title: "Gagal menyalin tautan",
+        description: "Coba salin URL dari address bar browser.",
+      });
+    }
+  };
 
   return (
     <Layout>
+      <PageMeta
+        title={`Hasil ${testName} | KognitiF`}
+        description={`Ringkasan hasil ${testName}: akurasi ${result.accuracy} persen, waktu rata-rata ${result.avgResponseTime} ms, dan performa per segmen.`}
+        canonicalPath={`/hasil/${result.id}`}
+        schema={schema}
+      />
       <div className="container mx-auto px-6 py-10 max-w-3xl">
         {/* Breadcrumb */}
         <Link
@@ -82,6 +126,40 @@ const Results = () => {
           <p className={`text-sm font-semibold mt-1 ${label.color}`}>{label.text}</p>
         </div>
 
+        <div id="result-share-card" className="mb-8 rounded-lg border border-border bg-card p-6">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            Bagikan ringkasan hasil
+          </p>
+          <div className="grid gap-5 md:grid-cols-[1fr_auto] md:items-end">
+            <div>
+              <h2 className="text-xl font-bold text-foreground">{result.accuracy}% akurasi</h2>
+              <p className="mt-2 max-w-xl text-sm leading-7 text-muted-foreground">
+                Hasil ini menunjukkan performa sesi {testName} pada {dateStr}, termasuk akurasi, waktu respons rata-rata,
+                dan perubahan performa per segmen.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <span className="rounded-md border border-border px-3 py-1 text-xs text-muted-foreground">
+                  {result.correctResponses} jawaban benar
+                </span>
+                <span className="rounded-md border border-border px-3 py-1 text-xs text-muted-foreground">
+                  {result.avgResponseTime} ms rata-rata
+                </span>
+                <span className="rounded-md border border-border px-3 py-1 text-xs text-muted-foreground">
+                  Durasi {result.duration} detik
+                </span>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={handleCopyLink}
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+            >
+              <Copy className="h-3.5 w-3.5" />
+              Salin Tautan Hasil
+            </button>
+          </div>
+        </div>
+
         {/* Stats row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
           {[
@@ -97,53 +175,20 @@ const Results = () => {
           ))}
         </div>
 
-        {/* Bar chart */}
-        {chartData.length > 0 && (
-          <div className="border border-border rounded-lg p-5 mb-3">
-            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">
-              Performa per segmen
-            </p>
-            <ResponsiveContainer width="100%" height={200}>
-              <BarChart data={chartData} barGap={4}>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(214 20% 91%)" />
-                <XAxis dataKey="name" tick={{ fontSize: 11 }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 11 }} axisLine={false} tickLine={false} />
-                <Tooltip
-                  contentStyle={{ fontSize: 12, borderRadius: 8, border: "1px solid hsl(214 20% 90%)" }}
-                />
-                <Bar dataKey="Benar" fill="hsl(172 50% 36%)" radius={[3, 3, 0, 0]} />
-                <Bar dataKey="Salah" fill="hsl(0 72% 51%)" radius={[3, 3, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        )}
-
-        {/* Line chart */}
-        {chartData.length > 0 && (
-          <div className="border border-border rounded-lg p-5 mb-8">
-            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">
-              Waktu respons per segmen
-            </p>
-            <ResponsiveContainer width="100%" height={180}>
-              <LineChart data={chartData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(214 20% 91%)" />
-                <XAxis dataKey="name" tick={{ fontSize: 11 }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 11 }} axisLine={false} tickLine={false} />
-                <Tooltip
-                  contentStyle={{ fontSize: 12, borderRadius: 8, border: "1px solid hsl(214 20% 90%)" }}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="Waktu (ms)"
-                  stroke="hsl(172 50% 36%)"
-                  strokeWidth={2}
-                  dot={{ r: 3, fill: "hsl(172 50% 36%)" }}
-                  activeDot={{ r: 5 }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-        )}
+        <Suspense
+          fallback={
+            chartData.length > 0 ? (
+              <div className="mb-8 rounded-lg border border-border bg-card p-5">
+                <p className="text-sm font-semibold text-foreground">Menyiapkan visual hasil</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Grafik performa dimuat terpisah agar halaman hasil lebih cepat terbuka.
+                </p>
+              </div>
+            ) : null
+          }
+        >
+          <ResultsCharts chartData={chartData} />
+        </Suspense>
 
         {/* Disclaimer */}
         <p className="text-xs text-muted-foreground border border-border rounded-lg px-4 py-3 mb-8 leading-relaxed">

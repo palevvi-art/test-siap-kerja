@@ -59,6 +59,36 @@ export const ALL_TESTS: TestMeta[] = [
     ],
   }),
   buildTestMeta({
+    id: "deret-angka",
+    name: "Deret Angka",
+    description: "Melanjutkan pola angka. Mengukur logika numerik dan kemampuan membaca aturan.",
+    duration: "3-5 menit",
+    path: "/tes/deret-angka",
+    category: "logika",
+    seoTitle: "Tes Deret Angka Online Gratis untuk Seleksi Kerja",
+    seoDescription:
+      "Latihan tes deret angka online gratis untuk persiapan seleksi kerja, BUMN, CPNS, dan perusahaan swasta. Ukur logika numerik, konsentrasi, dan konsistensi membaca pola.",
+    heroTitle: "Tes Deret Angka Online Gratis",
+    intro: [
+      "Tes deret angka menguji kemampuan Anda menemukan aturan perubahan dalam rangkaian angka lalu menentukan angka berikutnya secara cepat.",
+      "Jenis soal ini sering muncul dalam tes psikologi kerja karena membantu melihat kemampuan membaca pola, fokus pada detail numerik, dan ketepatan mengambil keputusan saat waktu terbatas.",
+    ],
+    measures: ["Penalaran numerik", "Kecepatan membaca pola", "Ketepatan memilih kelanjutan deret"],
+    usedFor: ["Latihan seleksi BUMN", "Persiapan tes numerik CPNS", "Assessment reasoning perusahaan swasta"],
+    faq: [
+      {
+        question: "Apa itu tes deret angka?",
+        answer:
+          "Tes deret angka adalah tes logika yang meminta peserta menemukan pola perubahan angka lalu menentukan angka berikutnya yang paling tepat.",
+      },
+      {
+        question: "Apa yang diukur dari tes deret angka?",
+        answer:
+          "Tes ini mengukur logika numerik, konsentrasi, dan kemampuan menjaga akurasi saat membaca pola angka di bawah tekanan waktu.",
+      },
+    ],
+  }),
+  buildTestMeta({
     id: "daya-ingat",
     name: "Daya Ingat Angka",
     description: "Ingat dan ulangi urutan angka. Mengukur kapasitas memori kerja.",
@@ -85,6 +115,36 @@ export const ALL_TESTS: TestMeta[] = [
         question: "Kenapa tes daya ingat angka sering dipakai saat seleksi?",
         answer:
           "Tes ini membantu melihat kemampuan menyimpan informasi singkat, menjaga fokus, dan tetap akurat saat informasi diberikan cepat.",
+      },
+    ],
+  }),
+  buildTestMeta({
+    id: "memori-visual",
+    name: "Memori Visual",
+    description: "Mengingat urutan simbol arah. Mengukur memori visual jangka pendek.",
+    duration: "3-5 menit",
+    path: "/tes/memori-visual",
+    category: "memori",
+    seoTitle: "Tes Memori Visual Online Gratis",
+    seoDescription:
+      "Tes memori visual online gratis untuk melatih ingatan jangka pendek, fokus visual, dan akurasi recall. Cocok untuk persiapan assessment kerja dan tes psikologi online.",
+    heroTitle: "Tes Memori Visual Online",
+    intro: [
+      "Tes memori visual meminta Anda menyimpan urutan simbol yang ditampilkan singkat lalu memilih urutan yang sama persis.",
+      "Latihan ini relevan untuk seleksi kerja yang menilai fokus visual, kapasitas mengingat informasi singkat, dan kemampuan mempertahankan detail saat beban tugas meningkat.",
+    ],
+    measures: ["Memori visual jangka pendek", "Ketelitian recall simbol", "Fokus terhadap urutan informasi"],
+    usedFor: ["Tes psikologi kerja online", "Latihan memori untuk seleksi administrasi", "Persiapan assessment entry-level"],
+    faq: [
+      {
+        question: "Apa itu tes memori visual?",
+        answer:
+          "Tes memori visual adalah latihan yang mengukur kemampuan mengingat susunan atau urutan simbol secara cepat dan akurat.",
+      },
+      {
+        question: "Kenapa tes memori visual dipakai saat seleksi?",
+        answer:
+          "Tes ini membantu melihat fokus visual, kapasitas memori jangka pendek, dan kestabilan recall saat informasi muncul singkat.",
       },
     ],
   }),
@@ -119,6 +179,36 @@ export const ALL_TESTS: TestMeta[] = [
     ],
   }),
   buildTestMeta({
+    id: "aritmetika-campuran",
+    name: "Aritmetika Campuran",
+    description: "Operasi tambah, kurang, kali, dan bagi. Mengukur kecepatan numerik dan akurasi.",
+    duration: "3-5 menit",
+    path: "/tes/aritmetika-campuran",
+    category: "hitung",
+    seoTitle: "Tes Aritmetika Campuran Online Gratis",
+    seoDescription:
+      "Latihan tes aritmetika campuran online gratis untuk mengukur kecepatan numerik, akurasi hitung, dan fokus pada operasi dasar saat tes kerja.",
+    heroTitle: "Tes Aritmetika Campuran Online",
+    intro: [
+      "Tes aritmetika campuran mengharuskan Anda menyelesaikan operasi tambah, kurang, kali, dan bagi dengan cepat sambil menjaga akurasi jawaban.",
+      "Soal seperti ini umum dipakai untuk memetakan kecepatan kerja mental, ritme respons, dan kestabilan numerik dasar pada seleksi kerja.",
+    ],
+    measures: ["Kecepatan hitung campuran", "Akurasi operasi dasar", "Stabilitas respons numerik"],
+    usedFor: ["Seleksi administrasi dan operasional", "Latihan tes numerik kerja", "Persiapan assessment perusahaan swasta"],
+    faq: [
+      {
+        question: "Apa yang dinilai dalam tes aritmetika campuran?",
+        answer:
+          "Tes ini menilai seberapa cepat Anda memproses operasi hitung dasar yang bervariasi dan seberapa konsisten Anda menjaga jawaban tetap benar.",
+      },
+      {
+        question: "Apakah tes ini cocok untuk latihan numerik kerja?",
+        answer:
+          "Ya. Pola soalnya relevan untuk latihan tes numerik kerja karena menuntut kecepatan, akurasi, dan fokus pada operasi dasar.",
+      },
+    ],
+  }),
+  buildTestMeta({
     id: "kraepelin",
     name: "Kraepelin Digital",
     description: "Jumlahkan angka vertikal secara berurutan. Mengukur ketelitian dan konsistensi hitung.",
@@ -149,6 +239,36 @@ export const ALL_TESTS: TestMeta[] = [
     ],
   }),
   buildTestMeta({
+    id: "pemeriksaan-kode",
+    name: "Pemeriksaan Kode",
+    description: "Membandingkan dua kode alfanumerik. Mengukur spotting error dan ketelitian visual.",
+    duration: "3-5 menit",
+    path: "/tes/pemeriksaan-kode",
+    category: "ketelitian",
+    seoTitle: "Tes Pemeriksaan Kode Online Gratis",
+    seoDescription:
+      "Tes pemeriksaan kode online gratis untuk melatih spotting error, membandingkan kode alfanumerik, dan menjaga akurasi detail. Cocok untuk latihan tes kerja administrasi.",
+    heroTitle: "Tes Pemeriksaan Kode Online",
+    intro: [
+      "Tes pemeriksaan kode mengharuskan Anda membandingkan dua kode alfanumerik lalu menentukan apakah keduanya sama persis atau berbeda.",
+      "Model soal ini efektif untuk melihat ketelitian kerja administratif, kemampuan spotting error, dan fokus terhadap detail kecil yang berulang.",
+    ],
+    measures: ["Ketelitian visual terhadap kode", "Kecepatan spotting error", "Konsistensi membandingkan detail kecil"],
+    usedFor: ["Latihan seleksi administrasi", "Tes ketelitian operator", "Assessment back office dan quality control"],
+    faq: [
+      {
+        question: "Apa tujuan tes pemeriksaan kode?",
+        answer:
+          "Tujuannya adalah mengukur kemampuan Anda membandingkan detail kecil, menemukan perbedaan tipis, dan menjaga akurasi saat memeriksa kode.",
+      },
+      {
+        question: "Siapa yang cocok berlatih tes pemeriksaan kode?",
+        answer:
+          "Peserta seleksi kerja untuk peran administrasi, operator, quality control, atau posisi yang menuntut pengecekan detail berulang.",
+      },
+    ],
+  }),
+  buildTestMeta({
     id: "ketelitian-visual",
     name: "Ketelitian Visual",
     description: "Temukan simbol target di antara pengecoh. Mengukur akurasi persepsi visual.",
@@ -175,6 +295,36 @@ export const ALL_TESTS: TestMeta[] = [
         question: "Siapa yang cocok berlatih tes ketelitian visual?",
         answer:
           "Peserta seleksi kerja untuk peran administrasi, operator, quality control, atau posisi lain yang menuntut perhatian tinggi pada detail.",
+      },
+    ],
+  }),
+  buildTestMeta({
+    id: "stroop-warna",
+    name: "Fokus Warna",
+    description: "Memilih warna teks, bukan katanya. Mengukur fokus selektif dan kontrol impuls.",
+    duration: "3-5 menit",
+    path: "/tes/stroop-warna",
+    category: "fokus",
+    seoTitle: "Tes Fokus Warna Online Gratis",
+    seoDescription:
+      "Tes fokus warna online gratis untuk mengukur fokus selektif, kontrol impuls, dan konsistensi respons. Cocok untuk latihan tes psikologi kerja.",
+    heroTitle: "Tes Fokus Warna Online Gratis",
+    intro: [
+      "Tes fokus warna meminta Anda memilih warna teks yang tampil, bukan membaca kata yang tertulis. Tugas ini menguji fokus selektif dan kemampuan menahan respons otomatis.",
+      "Soal semacam ini sering dipakai untuk melihat apakah peserta mampu tetap fokus pada instruksi, tidak mudah terpancing, dan minim salah tekan saat waktu berjalan cepat.",
+    ],
+    measures: ["Fokus selektif", "Kontrol impuls", "Konsistensi mengikuti instruksi visual"],
+    usedFor: ["Seleksi operator dan administrasi", "Assessment konsentrasi kerja", "Latihan menghadapi tes fokus online"],
+    faq: [
+      {
+        question: "Apa yang dimaksud tes fokus warna?",
+        answer:
+          "Tes fokus warna adalah latihan yang menilai kemampuan mempertahankan perhatian pada warna yang tampil sambil menahan kebiasaan otomatis membaca kata.",
+      },
+      {
+        question: "Apakah tes fokus warna hanya mengukur cepat atau lambat?",
+        answer:
+          "Tidak. Yang dinilai adalah gabungan antara kecepatan, kestabilan fokus, dan kemampuan menekan kesalahan impulsif.",
       },
     ],
   }),
@@ -325,6 +475,36 @@ export const ALL_TESTS: TestMeta[] = [
         question: "Apakah tes penalaran verbal penting untuk seleksi kerja?",
         answer:
           "Ya. Banyak perusahaan menggunakannya untuk melihat kejelasan berpikir, pemahaman instruksi, dan kemampuan memproses informasi tertulis secara akurat.",
+      },
+    ],
+  }),
+  buildTestMeta({
+    id: "analogi-kata",
+    name: "Analogi Kata",
+    description: "Melengkapi hubungan kata. Mengukur penalaran verbal dan ketepatan melihat relasi.",
+    duration: "4-6 menit",
+    path: "/tes/analogi-kata",
+    category: "verbal",
+    seoTitle: "Tes Analogi Kata Online Gratis",
+    seoDescription:
+      "Tes analogi kata online gratis untuk melatih relasi kata, logika bahasa, dan kecermatan membaca hubungan verbal. Cocok untuk seleksi kerja dan tes psikologi verbal.",
+    heroTitle: "Tes Analogi Kata Online",
+    intro: [
+      "Tes analogi kata mengukur kemampuan memahami hubungan antar kata lalu menerapkan pola hubungan yang sama pada pasangan kata lain.",
+      "Latihan ini sering dipakai untuk melihat kejernihan berpikir, ketepatan memahami makna, dan kemampuan menalar melalui bahasa tertulis.",
+    ],
+    measures: ["Relasi kata dan makna", "Ketepatan logika verbal", "Kecepatan membaca pola hubungan bahasa"],
+    usedFor: ["Tes verbal seleksi kerja", "Latihan CPNS dan BUMN", "Assessment role yang menuntut komunikasi tertulis"],
+    faq: [
+      {
+        question: "Apa yang dimaksud tes analogi kata?",
+        answer:
+          "Tes analogi kata adalah tes yang mengukur kemampuan memahami hubungan antar kata lalu menemukan kata lain yang memiliki hubungan serupa.",
+      },
+      {
+        question: "Apakah tes analogi kata penting untuk seleksi kerja?",
+        answer:
+          "Ya. Banyak perusahaan menggunakannya untuk melihat ketepatan berpikir verbal, pemahaman makna, dan kejelasan menalar lewat bahasa.",
       },
     ],
   }),
