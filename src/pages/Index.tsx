@@ -131,6 +131,10 @@ const homepageSchema = [
 
 export default function Index() {
   const shouldReduceMotion = useReducedMotion();
+  const hasViewportObserver =
+    typeof window !== "undefined" && typeof window.IntersectionObserver !== "undefined";
+  const heroMotionViewport =
+    !shouldReduceMotion && hasViewportObserver ? { once: true, amount: 0.55 } : undefined;
 
   useEffect(() => {
     const nodes = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
@@ -327,7 +331,9 @@ export default function Index() {
                             <motion.div
                               className="h-full rounded-full bg-[linear-gradient(90deg,#10b981,#6ee7b7)]"
                               initial={shouldReduceMotion ? false : { scaleX: 0.02, opacity: 0.45 }}
-                              animate={shouldReduceMotion ? { scaleX: 1, opacity: 1 } : { scaleX: 1, opacity: 1 }}
+                              animate={!hasViewportObserver || shouldReduceMotion ? { scaleX: 1, opacity: 1 } : undefined}
+                              whileInView={hasViewportObserver ? { scaleX: 1, opacity: 1 } : undefined}
+                              viewport={heroMotionViewport}
                               transition={{ delay: index * 0.12 + 0.24, duration: 1.05, ease: [0.22, 1, 0.36, 1] }}
                               style={{ width: `${item.progress}%`, originX: 0 }}
                             />
@@ -371,7 +377,9 @@ export default function Index() {
                           d={WEEKLY_CHART_AREA_PATH}
                           fill="url(#weekly-area)"
                           initial={shouldReduceMotion ? false : { opacity: 0 }}
-                          animate={{ opacity: 1 }}
+                          animate={!hasViewportObserver || shouldReduceMotion ? { opacity: 1 } : undefined}
+                          whileInView={hasViewportObserver ? { opacity: 1 } : undefined}
+                          viewport={heroMotionViewport}
                           transition={{ duration: 0.8, delay: 0.46, ease: [0.22, 1, 0.36, 1] }}
                         />
                         <motion.path
@@ -381,7 +389,9 @@ export default function Index() {
                           strokeWidth="3.5"
                           strokeLinecap="round"
                           initial={shouldReduceMotion ? false : { pathLength: 0, opacity: 0.4 }}
-                          animate={{ pathLength: 1, opacity: 1 }}
+                          animate={!hasViewportObserver || shouldReduceMotion ? { pathLength: 1, opacity: 1 } : undefined}
+                          whileInView={hasViewportObserver ? { pathLength: 1, opacity: 1 } : undefined}
+                          viewport={heroMotionViewport}
                           transition={{ duration: 1.2, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
                           style={{ filter: "drop-shadow(0 0 10px rgba(16,185,129,0.22))" }}
                         />
@@ -393,7 +403,9 @@ export default function Index() {
                             r="4.5"
                             fill="#10b981"
                             initial={shouldReduceMotion ? false : { scale: 0.5, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
+                            animate={!hasViewportObserver || shouldReduceMotion ? { scale: 1, opacity: 1 } : undefined}
+                            whileInView={hasViewportObserver ? { scale: 1, opacity: 1 } : undefined}
+                            viewport={heroMotionViewport}
                             transition={{ delay: index * 0.08 + 0.52, duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
                           />
                         ))}
@@ -404,7 +416,9 @@ export default function Index() {
                           <motion.div
                             className="landing-bar-glow w-full rounded-t-md bg-[linear-gradient(180deg,rgba(16,185,129,0.9),rgba(16,185,129,0.15))]"
                             initial={shouldReduceMotion ? false : { scaleY: 0.18, opacity: 0.35 }}
-                            animate={shouldReduceMotion ? { scaleY: 1, opacity: 1 } : { scaleY: 1, opacity: 1 }}
+                            animate={!hasViewportObserver || shouldReduceMotion ? { scaleY: 1, opacity: 1 } : undefined}
+                            whileInView={hasViewportObserver ? { scaleY: 1, opacity: 1 } : undefined}
+                            viewport={heroMotionViewport}
                             transition={{ delay: index * 0.09 + 0.14, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                             style={{ height: `${height}%`, originY: 1 }}
                           />
