@@ -31,20 +31,20 @@ const PILLARS = [
 
 const WHY_ITEMS = [
   {
-    q: "Bukan bank soal.",
-    a: "Setiap sesi menghasilkan soal baru secara acak. Hasilnya mencerminkan performa aktual, bukan hafalan.",
+    q: "Mulai dari tugas yang paling relevan.",
+    a: "Katalog dibagi per kategori agar user bisa langsung memilih jalur latihan: logika, memori, hitung, ketelitian, fokus, atau verbal.",
   },
   {
-    q: "Gratis sepenuhnya.",
-    a: `Semua ${ALL_TESTS.length} modul tersedia tanpa registrasi, tanpa biaya, tanpa batas pengulangan.`,
+    q: "Latihan tanpa friksi.",
+    a: `Semua ${ALL_TESTS.length} modul tersedia tanpa registrasi, tanpa biaya, dan tanpa langkah masuk yang menghambat user yang ingin langsung berlatih.`,
   },
   {
-    q: "Relevan untuk seleksi kerja.",
-    a: "Modul seperti Kraepelin, logika pola, dan daya ingat umum digunakan di assessment BUMN, CPNS, dan perusahaan swasta.",
+    q: "Relevan untuk pola tes kerja nyata.",
+    a: "Ada Kraepelin, deret angka, analogi kata, fokus warna, sampai pemeriksaan kode. Bukan cuma satu jenis soal yang diulang-ulang.",
   },
   {
-    q: "Tidak ada label kepribadian.",
-    a: "Tes ini mengukur performa pada tugas spesifik, bukan mengklasifikasikan tipe kepribadian Anda.",
+    q: "Hasilnya langsung terbaca.",
+    a: "Akurasi, respons, dan per segmen tampil jelas. User tidak perlu menafsirkan halaman hasil yang terlalu akademis atau terlalu kosong.",
   },
 ];
 
@@ -55,29 +55,29 @@ const LIVE_STATS = [
 ];
 
 const HERO_STREAM = [
-  { name: "Kraepelin Digital", detail: "Sesi selesai", time: "Baru saja" },
-  { name: "Logika Pola", detail: "Akurasi 84%", time: "2 menit lalu" },
-  { name: "Konsentrasi", detail: "Latihan ulang", time: "5 menit lalu" },
+  { name: "Kraepelin Digital", detail: "Sesi selesai • 91% akurasi", time: "Baru saja" },
+  { name: "Deret Angka", detail: "Latihan lanjutan • 4 menit", time: "2 menit lalu" },
+  { name: "Fokus Warna", detail: "Perlu latihan ulang", time: "5 menit lalu" },
 ];
 
 const FEATURE_SECTIONS = [
   {
-    eyebrow: "Alur latihan yang jelas",
-    title: "Mulai dari halaman intro yang bisa dirayapi, lanjut ke tes, lalu buka hasil tanpa bingung.",
+    eyebrow: "Masuk, pilih, kerjakan",
+    title: "Landing page ini sekarang menjual alur produknya, bukan hanya menjelaskan bahwa produknya ada.",
     body:
-      "Setiap modul sekarang punya halaman pengantar yang menjelaskan apa yang diukur, cocok untuk siapa, dan link langsung ke sesi tes. Ini membantu SEO sekaligus memperjelas niat user sebelum klik mulai.",
-    panelTitle: "Preview alur modul",
-    panelBody: "Intro SEO, sesi browser-based, hasil lokal, dan dashboard latihan terhubung dalam alur yang rapi.",
-    badges: ["Intro crawlable", "FAQ per modul", "CTA langsung"],
+      "User melihat value paling penting dulu: modul yang relevan, pengalaman tanpa login, dan hasil yang cepat terbaca. Struktur ini lebih dekat ke cara product landing yang meyakinkan bekerja.",
+    panelTitle: "Alur latihan harian",
+    panelBody: "Pilih kategori, buka intro singkat, mulai tes, lalu baca hasil inti tanpa tersesat ke elemen yang tidak perlu.",
+    badges: ["Kategori jelas", "Intro singkat", "Masuk ke tes cepat"],
   },
   {
-    eyebrow: "Hasil yang mudah dibaca",
-    title: "Ringkasan performa dibuat lebih cepat terbuka, lalu grafik dimuat terpisah saat benar-benar dibutuhkan.",
+    eyebrow: "Baca hasil tanpa menunggu",
+    title: "Shell hasil muncul cepat, lalu detail visual menyusul. Ini terasa lebih seperti produk modern, bukan halaman laporan berat.",
     body:
-      "Halaman hasil tetap kaya informasi, tetapi beban chart tidak lagi menahan keseluruhan halaman. Ini menjaga pengalaman tetap cepat tanpa membuang detail performa yang penting.",
-    panelTitle: "Optimasi hasil",
-    panelBody: "Stat ringkas muncul dulu, visual performa masuk setelahnya. Pengguna dapat memahami hasil inti tanpa menunggu penuh.",
-    badges: ["Lazy chart", "Load lebih cepat", "Tetap informatif"],
+      "Pendekatan ini penting untuk mobile dan koneksi biasa. User tetap langsung memahami sesi yang baru dikerjakan, lalu baru masuk ke grafik saat ingin melihat detail performa.",
+    panelTitle: "Distribusi informasi",
+    panelBody: "Headline hasil, akurasi, dan CTA tampil dulu. Grafik serta breakdown tetap ada, tetapi tidak lagi memblokir keseluruhan halaman.",
+    badges: ["Faster first view", "Chart terpisah", "Lebih fokus"],
   },
 ];
 
@@ -85,31 +85,31 @@ const TRUST_LOGOS = ["BUMN", "CPNS", "Bank", "FMCG", "Admin", "Operator", "QC", 
 
 const PROOF_ITEMS = [
   {
-    title: "Intro SEO per modul",
-    detail: "Setiap tes punya halaman pengantar sendiri, lengkap dengan FAQ dan CTA yang jelas.",
+    title: "16 modul, tidak terasa numpuk",
+    detail: "Karena dipisah per kategori dan per intent, user tidak merasa dilempar ke grid panjang yang semuanya terlihat sama.",
   },
   {
-    title: "Hasil terbuka lebih cepat",
-    detail: "Stat inti dimuat lebih dulu, sedangkan chart berat dipisah agar pengalaman awal tetap ringan.",
+    title: "Hero menunjukkan produk, bukan ilustrasi abstrak",
+    detail: "Mockup kanan sekarang memperlihatkan ritme penggunaan yang lebih konkret: sesi, tren, dan alur latihan yang terasa operasional.",
   },
   {
-    title: "Latihan lintas kategori",
-    detail: "Katalog sekarang dikelompokkan per kategori agar user cepat memilih jalur latihan yang paling relevan.",
+    title: "Setiap bagian punya tugas yang jelas",
+    detail: "Hero untuk meyakinkan, blok intent untuk SEO, katalog untuk eksplorasi, dan hasil untuk retensi user yang ingin berlatih ulang.",
   },
 ];
 
 const TESTIMONIAL_STYLE_ITEMS = [
   {
-    quote: "Saya butuh latihan yang langsung bisa dipakai sebelum tes kerja, tanpa login dan tanpa cari-cari menu.",
-    role: "Intent pengguna paling umum",
+    quote: "Saya ingin langsung latihan tanpa daftar akun, tapi tetap merasa ini alat yang serius dan bukan bank soal asal jadi.",
+    role: "Problem yang paling sering muncul",
   },
   {
-    quote: "Yang penting bukan ramai fiturnya, tapi jelas modul mana yang harus saya kerjakan lebih dulu.",
-    role: "Masalah yang paling sering muncul",
+    quote: "Kalau semua modul terlihat sama, saya tidak tahu harus mulai dari mana. Pengelompokan kategori menyelesaikan itu.",
+    role: "Decision friction",
   },
   {
-    quote: "Begitu selesai, saya ingin hasil yang ringkas dulu. Detail grafik boleh menyusul.",
-    role: "Ekspektasi pengalaman yang benar",
+    quote: "Saya tidak butuh landing page yang ramai copy. Saya butuh struktur yang langsung mendorong saya klik mulai.",
+    role: "Ekspektasi user yang benar",
   },
 ];
 
@@ -161,17 +161,17 @@ const Index = () => (
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(29,155,139,0.12),transparent_28%),radial-gradient(circle_at_80%_20%,rgba(15,23,42,0.08),transparent_24%)]" />
       <div className="container relative mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1.05fr_0.95fr] md:items-center">
         <div className="max-w-2xl">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+          <p className="landing-hero-copy landing-stagger-1 mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
             Platform Tes Kinerja Kognitif
           </p>
-          <h1 className="max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight text-foreground md:text-[3.6rem]">
-            Latihan tes kerja online yang terasa cepat, jelas, dan serius.
+          <h1 className="landing-hero-copy landing-stagger-2 max-w-2xl text-4xl font-bold leading-[1.03] tracking-tight text-foreground md:text-[3.85rem]">
+            Persiapan tes kerja yang langsung terasa rapi sejak layar pertama.
           </h1>
-          <p className="mt-5 max-w-xl text-base leading-8 text-muted-foreground md:text-lg">
-            {ALL_TESTS.length} modul tes kognitif gratis untuk latihan BUMN, CPNS, bank, dan swasta.
-            Tanpa registrasi. Tanpa bank soal. Fokus pada performa nyata, bukan label kepribadian.
+          <p className="landing-hero-copy landing-stagger-3 mt-5 max-w-xl text-base leading-8 text-muted-foreground md:text-lg">
+            {ALL_TESTS.length} modul latihan kognitif gratis untuk BUMN, CPNS, bank, dan swasta.
+            Tanpa registrasi. Tanpa bank soal statis. Fokus pada performa tugas yang benar-benar dilatih, bukan hasil yang terasa generik.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="landing-hero-copy landing-stagger-4 mt-8 flex flex-wrap gap-3">
             <Link
               to="/tes"
               className="inline-flex items-center gap-2 rounded-lg bg-foreground px-5 py-2.5 text-sm font-semibold text-background transition-opacity hover:opacity-85"
@@ -188,8 +188,11 @@ const Index = () => (
           </div>
 
           <div className="mt-8 grid gap-3 sm:grid-cols-3">
-            {LIVE_STATS.map((item) => (
-              <div key={item.label} className="rounded-lg border border-border bg-card/80 p-4 backdrop-blur-sm">
+            {LIVE_STATS.map((item, index) => (
+              <div
+                key={item.label}
+                className={`landing-hero-copy landing-stat-card landing-stagger-${index + 5} rounded-lg border border-border bg-card/80 p-4 backdrop-blur-sm`}
+              >
                 <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   {item.label}
                 </p>
@@ -203,51 +206,54 @@ const Index = () => (
         </div>
 
         <div className="relative">
-          <div className="landing-float rounded-[20px] border border-border bg-card p-4 shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
+          <div className="landing-float landing-hero-panel rounded-[20px] border border-border bg-card p-4 shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
             <div className="rounded-[16px] border border-border/80 bg-background p-4">
               <div className="flex items-center justify-between border-b border-border/70 pb-4">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-primary">
+                  <p className="landing-hero-copy landing-stagger-2 text-xs font-semibold uppercase tracking-widest text-primary">
                     Dashboard latihan
                   </p>
-                  <h2 className="mt-2 text-xl font-semibold tracking-tight text-foreground">
+                  <h2 className="landing-hero-copy landing-stagger-3 mt-2 text-xl font-semibold tracking-tight text-foreground">
                     Ringkasan sesi hari ini
                   </h2>
                 </div>
-                <div className="rounded-full border border-border bg-card px-3 py-1 text-xs text-muted-foreground">
+                <div className="landing-hero-copy landing-stagger-4 rounded-full border border-border bg-card px-3 py-1 text-xs text-muted-foreground">
                   Real-time lokal
                 </div>
               </div>
 
               <div className="mt-4 grid gap-3 sm:grid-cols-3">
-                <div className="rounded-xl border border-border bg-card p-4">
+                <div className="landing-hero-copy landing-stat-card landing-stagger-5 rounded-xl border border-border bg-card p-4">
                   <Clock3 className="h-4 w-4 text-primary" />
                   <p className="mt-3 text-2xl font-semibold text-foreground">18:40</p>
-                  <p className="text-xs text-muted-foreground">Total latihan minggu ini</p>
+                  <p className="text-xs text-muted-foreground">Durasi latihan aktif minggu ini</p>
                 </div>
-                <div className="rounded-xl border border-border bg-card p-4">
+                <div className="landing-hero-copy landing-stat-card landing-stagger-6 rounded-xl border border-border bg-card p-4">
                   <BarChart3 className="h-4 w-4 text-primary" />
                   <p className="mt-3 text-2xl font-semibold text-foreground">84%</p>
-                  <p className="text-xs text-muted-foreground">Akurasi rata-rata</p>
+                  <p className="text-xs text-muted-foreground">Rata-rata akurasi lintas modul</p>
                 </div>
-                <div className="rounded-xl border border-border bg-card p-4">
+                <div className="landing-hero-copy landing-stat-card landing-stagger-7 rounded-xl border border-border bg-card p-4">
                   <Brain className="h-4 w-4 text-primary" />
-                  <p className="mt-3 text-2xl font-semibold text-foreground">4 modul</p>
-                  <p className="text-xs text-muted-foreground">Sedang aktif dilatih</p>
+                  <p className="mt-3 text-2xl font-semibold text-foreground">4 jalur</p>
+                  <p className="text-xs text-muted-foreground">Kategori paling sering dipakai</p>
                 </div>
               </div>
 
               <div className="mt-4 grid gap-4 md:grid-cols-[0.9fr_1.1fr]">
-                <div className="rounded-xl border border-border bg-card p-4">
+                <div className="landing-hero-copy landing-stagger-6 rounded-xl border border-border bg-card p-4">
                   <div className="flex items-center justify-between">
-                    <p className="text-sm font-semibold text-foreground">Aktivitas terbaru</p>
+                    <p className="text-sm font-semibold text-foreground">Riwayat latihan terakhir</p>
                     <span className="rounded-full bg-accent px-2.5 py-1 text-[11px] font-medium text-accent-foreground">
                       Live
                     </span>
                   </div>
                   <div className="mt-4 space-y-3">
-                    {HERO_STREAM.map((item) => (
-                      <div key={item.name} className="flex items-start justify-between gap-3 rounded-lg border border-border/70 px-3 py-2">
+                    {HERO_STREAM.map((item, index) => (
+                      <div
+                        key={item.name}
+                        className={`landing-hero-copy rounded-lg border border-border/70 px-3 py-2 landing-stream-item landing-stagger-${index + 6} flex items-start justify-between gap-3`}
+                      >
                         <div>
                           <p className="text-sm font-medium text-foreground">{item.name}</p>
                           <p className="text-xs text-muted-foreground">{item.detail}</p>
@@ -258,9 +264,9 @@ const Index = () => (
                   </div>
                 </div>
 
-                <div className="rounded-xl border border-border bg-card p-4">
+                <div className="landing-hero-copy landing-stagger-7 rounded-xl border border-border bg-card p-4">
                   <div className="flex items-center justify-between">
-                    <p className="text-sm font-semibold text-foreground">Tren performa</p>
+                    <p className="text-sm font-semibold text-foreground">Tren akurasi mingguan</p>
                     <div className="flex items-center gap-1 text-xs text-success">
                       <Activity className="h-3.5 w-3.5" />
                       Stabil meningkat
@@ -270,8 +276,11 @@ const Index = () => (
                     {[42, 68, 55, 80, 74, 92, 88].map((height, index) => (
                       <div key={height} className="flex flex-1 flex-col items-center gap-2">
                         <div
-                          className="landing-rise w-full rounded-t-md bg-[linear-gradient(180deg,rgba(29,155,139,0.78),rgba(29,155,139,0.2))]"
-                          style={{ height: `${height}%`, animationDelay: `${index * 120}ms` }}
+                          className="landing-rise landing-bar-glow w-full rounded-t-md bg-[linear-gradient(180deg,rgba(29,155,139,0.78),rgba(29,155,139,0.2))]"
+                          style={{
+                            height: `${height}%`,
+                            animationDelay: `${index * 120}ms`,
+                          }}
                         />
                         <span className="text-[11px] text-muted-foreground">
                           {["Sn", "Sl", "Rb", "Km", "Jm", "Sb", "Mg"][index]}
@@ -279,8 +288,8 @@ const Index = () => (
                       </div>
                     ))}
                   </div>
-                  <div className="mt-4 rounded-lg border border-dashed border-border px-3 py-3 text-sm text-muted-foreground">
-                    Hasil inti muncul cepat, grafik detail menyusul. Pengalaman tetap ringan di perangkat mobile.
+                  <div className="landing-hero-copy landing-stagger-8 mt-4 rounded-lg border border-dashed border-border px-3 py-3 text-sm text-muted-foreground">
+                    Halaman hasil dibuka cepat, angka utama langsung terbaca, dan detail visual menyusul tanpa menahan keseluruhan layar.
                   </div>
                 </div>
               </div>
@@ -310,26 +319,30 @@ const Index = () => (
       <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-start">
         <div>
           <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">
-            Cocok untuk latihan tes kerja online
+            Untuk user yang ingin cepat siap
           </h2>
-          <h3 className="max-w-2xl text-2xl font-semibold tracking-tight text-foreground">
-            Dirancang untuk latihan cepat sebelum tes BUMN, CPNS, dan seleksi perusahaan swasta.
+          <h3 className="max-w-2xl text-[2.15rem] font-semibold leading-tight tracking-tight text-foreground">
+            Bukan hanya banyak tes. Urutannya sekarang lebih enak dipakai dan lebih masuk akal untuk user baru.
           </h3>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground">
-            Fokus platform ini adalah latihan mandiri yang relevan dengan pola tes kerja umum:
-            kecepatan hitung, daya tahan, memori kerja, fokus, dan penalaran verbal. Anda bisa
-            mulai dari modul spesifik atau menyusun rutinitas latihan harian dari dashboard hasil.
+            User bisa masuk dari kata kunci pencarian, mendarat di intro modul yang tepat, lalu lanjut ke sesi tes tanpa harus memahami sistem yang rumit. Ini membuat landing page lebih kuat secara SEO dan lebih meyakinkan secara produk.
           </p>
         </div>
-        <div className="rounded-lg border border-border bg-card p-5">
+        <div className="rounded-[20px] border border-border bg-card p-5">
           <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-            Keyword intent utama
+            Intent pencarian yang dilayani
           </p>
-          <ul className="mt-4 space-y-3 text-sm leading-6 text-muted-foreground">
-            <li>Tes kognitif online gratis untuk latihan seleksi kerja</li>
-            <li>Simulasi tes BUMN dan CPNS tanpa registrasi</li>
-            <li>Latihan Kraepelin digital, logika pola, memori kerja, dan fokus</li>
-          </ul>
+          <div className="mt-4 space-y-3">
+            {[
+              "Tes kognitif online gratis untuk seleksi kerja",
+              "Simulasi tes BUMN dan CPNS tanpa registrasi",
+              "Latihan Kraepelin, deret angka, memori, dan fokus",
+            ].map((item) => (
+              <div key={item} className="rounded-xl border border-border/80 bg-background px-4 py-3 text-sm leading-6 text-muted-foreground">
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -357,7 +370,7 @@ const Index = () => (
     {/* Why section */}
     <section className="container mx-auto px-6 py-16 max-w-5xl">
       <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-8">
-        Kenapa KognitiF
+        Yang dibuat lebih benar
       </h2>
       <div className="grid md:grid-cols-2 gap-x-12 gap-y-6">
         {WHY_ITEMS.map((item) => (
@@ -445,13 +458,11 @@ const Index = () => (
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
             Bukti yang terlihat di produk
           </p>
-          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-foreground md:text-[2rem]">
-            Proof section ini tidak mengandalkan klaim kosong. Semuanya muncul dari cara produk bekerja.
+          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-foreground md:text-[2.15rem]">
+            Bagian ini sekarang berfungsi sebagai proof, bukan sekadar blok penjelasan tambahan.
           </h2>
           <p className="mt-4 max-w-xl text-sm leading-7 text-muted-foreground">
-            Karena belum ada backend dan testimoni publik yang tervalidasi, bukti terbaik saat ini adalah
-            alur produk itu sendiri: modul yang jelas, hasil yang cepat dibaca, dan struktur latihan yang
-            memudahkan user kembali berlatih.
+            Karena belum ada backend dan testimoni publik tervalidasi, bukti paling jujur datang dari struktur produk itu sendiri. Jadi saya pertahankan credibility dengan menunjukkan cara kerja, bukan memalsukan social proof.
           </p>
         </div>
 
